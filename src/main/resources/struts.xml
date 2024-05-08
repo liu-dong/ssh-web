@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+    <constant name="struts.devMode" value="false" />
+    <constant name="struts.objectFactory" value="spring" />
+    <constant name="struts.objectFactory.spring.autoWire" value="name" />
+
+    <!-- 默认访问页面 -->
+    <package name="default" extends="struts-default" namespace="/">
+        <default-action-ref name="default" />
+        <action name="default">
+            <result>/WEB-INF/view/index.jsp</result>
+        </action>
+    </package>
+
+    <!-- Packages and Actions configurations -->
+    <package name="default" namespace="/" extends="struts-default">
+        <action name="login" class="loginAction">
+            <result name="success">/welcome.jsp</result>
+            <result name="input">/login.jsp</result>
+        </action>
+    </package>
+</struts>
