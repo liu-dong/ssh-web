@@ -8,9 +8,9 @@
     <name>ssh-web</name>
 
     <properties>
-        <spring.version>5.3.19</spring.version>
-        <struts.version>6.3.0.2</struts.version>
-        <hibernate.version>5.6.5.Final</hibernate.version>
+        <spring.version>5.3.10</spring.version>
+        <struts.version>2.5.20</struts.version>
+        <hibernate.version>5.4.32.Final</hibernate.version>
         <mysql.version>8.0.28</mysql.version>
     </properties>
 
@@ -20,6 +20,11 @@
         <!-- Other dependencies ... -->
 
         <!-- Spring Framework -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+            <version>${spring.version}</version> <!-- Make sure to use the correct version -->
+        </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
