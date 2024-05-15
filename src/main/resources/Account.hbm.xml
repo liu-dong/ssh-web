@@ -4,7 +4,7 @@
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 
-    <class name="com.dong.web.action.SysAccount" table="sys_account" schema="meet">
+    <class name="com.dong.web.action.Account" table="sys_account" schema="meet">
         <id name="id">
             <column name="id" sql-type="varchar(36)" length="36"/>
         </id>

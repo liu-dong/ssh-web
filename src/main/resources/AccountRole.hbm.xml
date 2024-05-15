@@ -4,15 +4,15 @@
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 
-    <class name="com.dong.web.action.SysRolePermission" table="sys_role_permission" schema="meet">
+    <class name="com.dong.web.action.AccountRole" table="sys_account_role" schema="meet">
         <id name="id">
             <column name="id" sql-type="varchar(36)" length="36"/>
         </id>
+        <property name="accountId">
+            <column name="account_id" sql-type="varchar(36)" length="36"/>
+        </property>
         <property name="roleId">
             <column name="role_id" sql-type="varchar(36)" length="36"/>
-        </property>
-        <property name="permissionId">
-            <column name="permission_id" sql-type="varchar(36)" length="36"/>
         </property>
     </class>
 </hibernate-mapping>

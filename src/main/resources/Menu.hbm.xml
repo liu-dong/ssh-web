@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.dong.web.action.Menu" table="sys_menu" schema="meet">
+        <id name="id">
+            <column name="id" sql-type="varchar(36)" length="36"/>
+        </id>
+        <property name="parentId">
+            <column name="parent_id" sql-type="varchar(36)" length="36" not-null="true"/>
+        </property>
+        <property name="menuName">
+            <column name="menu_name" sql-type="varchar(50)" length="50"/>
+        </property>
+        <property name="menuLevel">
+            <column name="menu_level" sql-type="int(1)"/>
+        </property>
+        <property name="menuIcon">
+            <column name="menu_icon" sql-type="varchar(100)" length="100" not-null="true"/>
+        </property>
+        <property name="menuOrder">
+            <column name="menu_order" sql-type="int(1)" not-null="true"/>
+        </property>
+        <property name="menuUrl">
+            <column name="menu_url" sql-type="varchar(100)" length="100" not-null="true"/>
+        </property>
+        <property name="menuPath">
+            <column name="menu_path" sql-type="varchar(255)" not-null="true"/>
+        </property>
+        <property name="menuStatus">
+            <column name="menu_status" sql-type="int(1)" not-null="true"/>
+        </property>
+        <property name="hasChild">
+            <column name="has_child" sql-type="int(1)"/>
+        </property>
+        <property name="createTime">
+            <column name="create_time" sql-type="datetime"/>
+        </property>
+        <property name="updateTime">
+            <column name="update_time" sql-type="datetime" not-null="true"/>
+        </property>
+    </class>
+</hibernate-mapping>

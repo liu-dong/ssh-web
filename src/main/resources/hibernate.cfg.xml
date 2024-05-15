@@ -21,15 +21,37 @@
 		<property name="hibernate.format_sql">true</property>
 
 		<property name="hibernate.hbm2ddl.auto">update</property>
+		<mapping resource="Account.hbm.xml"/>
+		<mapping class="com.dong.web.action.Account"/>
+		<mapping resource="AccountRole.hbm.xml"/>
+		<mapping class="com.dong.web.action.AccountRole"/>
+		<mapping resource="AdministrativeDivision.hbm.xml"/>
+		<mapping class="com.dong.web.action.AdministrativeDivision"/>
+		<mapping class="com.dong.web.action.DataCatalog"/>
+		<mapping resource="DataCatalog.hbm.xml"/>
+		<mapping resource="DataCatalogItem.hbm.xml"/>
+		<mapping class="com.dong.web.action.DataCatalogItem"/>
+		<mapping resource="LoginLogs.hbm.xml"/>
+		<mapping class="com.dong.web.action.LoginLogs"/>
+		<mapping resource="Menu.hbm.xml"/>
+		<mapping class="com.dong.web.action.Menu"/>
+		<mapping resource="OperateLogs.hbm.xml"/>
+		<mapping class="com.dong.web.action.OperateLogs"/>
+		<mapping resource="Org.hbm.xml"/>
+		<mapping class="com.dong.web.action.Org"/>
+		<mapping resource="OrgPerson.hbm.xml"/>
+		<mapping class="com.dong.web.action.OrgPerson"/>
+		<mapping resource="Permission.hbm.xml"/>
+		<mapping class="com.dong.web.action.Permission"/>
+		<mapping resource="Person.hbm.xml"/>
+		<mapping class="com.dong.web.action.Person"/>
+		<mapping resource="Role.hbm.xml"/>
+		<mapping class="com.dong.web.action.Role"/>
+		<mapping resource="RolePermission.hbm.xml"/>
+		<mapping class="com.dong.web.action.RolePermission"/>
 
 		<!-- 加载映射文件 -->
-		<mapping resource="com/dong/web/entity/Account.hbm.xml"/>
-		<mapping resource="SysAccount.hbm.xml"/>
-		<mapping class="com.dong.web.action.SysAccount"/>
-		<mapping resource="SysRole.hbm.xml"/>
-		<mapping class="com.dong.web.action.SysRole"/>
-		<mapping resource="SysRolePermission.hbm.xml"/>
-		<mapping class="com.dong.web.action.SysRolePermission"/>
+
 	</session-factory>
 </hibernate-configuration>
 

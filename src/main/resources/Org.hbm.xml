@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.dong.web.action.Org" table="sys_org" schema="meet">
+        <id name="id">
+            <column name="id" sql-type="varchar(36)" length="36"/>
+        </id>
+        <property name="orgName">
+            <column name="org_name" sql-type="varchar(100)" length="100"/>
+        </property>
+        <property name="orgCode">
+            <column name="org_code" sql-type="varchar(50)" length="50"/>
+        </property>
+        <property name="orgType">
+            <column name="org_type" sql-type="int(1)"/>
+        </property>
+        <property name="orgDivisionCode">
+            <column name="org_division_code" sql-type="varchar(100)" length="100" not-null="true"/>
+        </property>
+        <property name="orgAddress">
+            <column name="org_address" sql-type="varchar(255)" not-null="true"/>
+        </property>
+        <property name="deleteStatus">
+            <column name="delete_status" sql-type="int(1)"/>
+        </property>
+        <property name="createTime">
+            <column name="create_time" sql-type="datetime"/>
+        </property>
+        <property name="createUserId">
+            <column name="create_user_id" sql-type="varchar(36)" length="36" not-null="true"/>
+        </property>
+        <property name="updateTime">
+            <column name="update_time" sql-type="datetime" not-null="true"/>
+        </property>
+        <property name="updateUserId">
+            <column name="update_user_id" sql-type="varchar(36)" length="36" not-null="true"/>
+        </property>
+    </class>
+</hibernate-mapping>
