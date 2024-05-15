@@ -9,7 +9,7 @@
 
     <display-name>ssh-web</display-name>
 
-    <!-- <filter>
+    <filter>
         <filter-name>encodingFilter</filter-name>
         <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
         <init-param>
@@ -24,7 +24,7 @@
     <filter-mapping>
         <filter-name>encodingFilter</filter-name>
         <url-pattern>/*</url-pattern>
-    </filter-mapping> -->
+    </filter-mapping>
 
     <!-- Struts2 filter that intercepts requests -->
     <filter>
@@ -40,14 +40,14 @@
     </filter-mapping>
 
     <!-- Configures the context loader listener that initializes Spring -->
-    <!-- <listener> -->
-    <!--     <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class> -->
-    <!-- </listener> -->
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
 
-    <!-- <context-param> -->
-    <!--     <param-name>contextConfigLocation</param-name> -->
-    <!--     <param-value>classpath:applicationContext.xml</param-value> -->
-    <!-- </context-param> -->
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>classpath:applicationContext.xml</param-value>
+    </context-param>
 
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>
