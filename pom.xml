@@ -15,7 +15,6 @@
         <mysql.version>8.0.33</mysql.version>
     </properties>
 
-
     <dependencies>
 
         <!-- Spring Framework -->
@@ -68,13 +67,11 @@
             <version>${mysql.version}</version>
         </dependency>
 
-        <!-- Other dependencies like JSP API, Servlet API, Spring ORM, etc. -->
-
-        <dependency>
+        <!-- <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-core</artifactId>
             <version>${log4j2.version}</version>
-        </dependency>
+        </dependency> -->
     </dependencies>
 
     <build>
