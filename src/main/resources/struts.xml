@@ -4,8 +4,9 @@
         "http://struts.apache.org/dtds/struts-2.5.dtd">
 <struts>
     <constant name="struts.devMode" value="true"/>
-    <constant name="struts.objectFactory" value="spring"/>
-    <constant name="struts.objectFactory.spring.autoWire" value="name"/>
+    <constant name="struts.i18n.encoding" value="UTF-8" />
+    <!-- <constant name="struts.objectFactory" value="spring"/> -->
+    <!-- <constant name="struts.objectFactory.spring.autoWire" value="name"/> -->
 
     <!-- 默认访问页面 -->
     <package name="default" extends="struts-default">
@@ -15,6 +16,10 @@
         </action>
         <action name="login">
             <result>login.jsp</result>
+        </action>
+
+        <action name="hello" class="com.dong.web.action.HelloAction" method="hello">
+            <result name="hello">hello.jsp</result>
         </action>
 
     </package>

@@ -8,7 +8,7 @@
 	<session-factory>
 		<!-- Database connection settings -->
 		<property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
-		<property name="connection.url">jdbc:mysql://192.168.1.127:3306/meet</property>
+		<property name="connection.url">jdbc:mysql://localhost:3306/meet</property>
 		<property name="connection.username">root</property>
 		<property name="connection.password">123456</property>
 
@@ -21,40 +21,37 @@
 		<property name="hibernate.format_sql">true</property>
 
 		<property name="hibernate.hbm2ddl.auto">update</property>
-		<mapping resource="Account.hbm.xml"/>
-		<mapping class="com.dong.web.action.Account"/>
-		<mapping resource="AccountRole.hbm.xml"/>
-		<mapping class="com.dong.web.action.AccountRole"/>
-		<mapping resource="AdministrativeDivision.hbm.xml"/>
-		<mapping class="com.dong.web.action.AdministrativeDivision"/>
-		<mapping class="com.dong.web.action.DataCatalog"/>
-		<mapping resource="DataCatalog.hbm.xml"/>
-		<mapping resource="DataCatalogItem.hbm.xml"/>
-		<mapping class="com.dong.web.action.DataCatalogItem"/>
-		<mapping resource="LoginLogs.hbm.xml"/>
-		<mapping class="com.dong.web.action.LoginLogs"/>
-		<mapping resource="Menu.hbm.xml"/>
-		<mapping class="com.dong.web.action.Menu"/>
-		<mapping resource="OperateLogs.hbm.xml"/>
-		<mapping class="com.dong.web.action.OperateLogs"/>
-		<mapping resource="Org.hbm.xml"/>
-		<mapping class="com.dong.web.action.Org"/>
-		<mapping resource="OrgPerson.hbm.xml"/>
-		<mapping class="com.dong.web.action.OrgPerson"/>
-		<mapping resource="Permission.hbm.xml"/>
-		<mapping class="com.dong.web.action.Permission"/>
-		<mapping resource="Person.hbm.xml"/>
-		<mapping class="com.dong.web.action.Person"/>
-		<mapping resource="Role.hbm.xml"/>
-		<mapping class="com.dong.web.action.Role"/>
-		<mapping resource="RolePermission.hbm.xml"/>
-		<mapping class="com.dong.web.action.RolePermission"/>
 
 		<!-- 加载映射文件 -->
+		<mapping resource="orm/Account.hbm.xml"/>
+		<mapping class="com.dong.web.entity.Account"/>
+		<mapping resource="orm/AccountRole.hbm.xml"/>
+		<mapping class="com.dong.web.entity.AccountRole"/>
+		<mapping resource="orm/AdministrativeDivision.hbm.xml"/>
+		<mapping class="com.dong.web.entity.AdministrativeDivision"/>
+		<mapping class="com.dong.web.entity.DataCatalog"/>
+		<mapping resource="orm/DataCatalog.hbm.xml"/>
+		<mapping resource="orm/DataCatalogItem.hbm.xml"/>
+		<mapping class="com.dong.web.entity.DataCatalogItem"/>
+		<mapping resource="orm/LoginLogs.hbm.xml"/>
+		<mapping class="com.dong.web.entity.LoginLogs"/>
+		<mapping resource="orm/Menu.hbm.xml"/>
+		<mapping class="com.dong.web.entity.Menu"/>
+		<mapping resource="orm/OperateLogs.hbm.xml"/>
+		<mapping class="com.dong.web.entity.OperateLogs"/>
+		<mapping resource="orm/Org.hbm.xml"/>
+		<mapping class="com.dong.web.entity.Org"/>
+		<mapping resource="orm/OrgPerson.hbm.xml"/>
+		<mapping class="com.dong.web.entity.OrgPerson"/>
+		<mapping resource="orm/Permission.hbm.xml"/>
+		<mapping class="com.dong.web.entity.Permission"/>
+		<mapping resource="orm/Person.hbm.xml"/>
+		<mapping class="com.dong.web.entity.Person"/>
+		<mapping resource="orm/Role.hbm.xml"/>
+		<mapping class="com.dong.web.entity.Role"/>
+		<mapping resource="orm/RolePermission.hbm.xml"/>
+		<mapping class="com.dong.web.entity.RolePermission"/>
 
 	</session-factory>
 </hibernate-configuration>
 
-
-
-

@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.dong.web.entity.AccountRole" table="sys_account_role" schema="meet">
+        <id name="id">
+            <column name="id" sql-type="varchar(36)" length="36"/>
+        </id>
+        <property name="accountId">
+            <column name="account_id" sql-type="varchar(36)" length="36"/>
+        </property>
+        <property name="roleId">
+            <column name="role_id" sql-type="varchar(36)" length="36"/>
+        </property>
+    </class>
+</hibernate-mapping>

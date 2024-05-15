@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.dong.web.entity.OperateLogs" table="sys_operate_logs" schema="meet">
+        <id name="id">
+            <column name="id" sql-type="varchar(36)" length="36"/>
+        </id>
+        <property name="account">
+            <column name="account" sql-type="varchar(100)" length="100"/>
+        </property>
+        <property name="operateType">
+            <column name="operate_type" sql-type="varchar(10)" length="10"/>
+        </property>
+        <property name="operateTime">
+            <column name="operate_time" sql-type="datetime"/>
+        </property>
+        <property name="moduleName">
+            <column name="module_name" sql-type="varchar(50)" length="50"/>
+        </property>
+        <property name="moduleCode">
+            <column name="module_code" sql-type="varchar(50)" length="50"/>
+        </property>
+        <property name="operateObject">
+            <column name="operate_object" sql-type="varchar(200)" length="200"/>
+        </property>
+        <property name="loginIp">
+            <column name="login_ip" sql-type="varchar(20)" length="20" not-null="true"/>
+        </property>
+        <property name="content">
+            <column name="content" sql-type="varchar(2000)" length="2000" not-null="true"/>
+        </property>
+        <property name="createTime">
+            <column name="create_time" sql-type="datetime"/>
+        </property>
+        <property name="updateTime">
+            <column name="update_time" sql-type="datetime" not-null="true"/>
+        </property>
+    </class>
+</hibernate-mapping>

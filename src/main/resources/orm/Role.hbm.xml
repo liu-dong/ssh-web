@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.dong.web.entity.Role" table="sys_role" schema="meet">
+        <id name="id">
+            <column name="id" sql-type="varchar(36)" length="36"/>
+        </id>
+        <property name="roleCode">
+            <column name="role_code" sql-type="varchar(20)" length="20"/>
+        </property>
+        <property name="roleName">
+            <column name="role_name" sql-type="varchar(100)" length="100"/>
+        </property>
+        <property name="remark">
+            <column name="remark" sql-type="varchar(150)" length="150" not-null="true"/>
+        </property>
+        <property name="createTime">
+            <column name="create_time" sql-type="datetime"/>
+        </property>
+        <property name="updateTime">
+            <column name="update_time" sql-type="datetime" not-null="true"/>
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.dong.web.entity.AdministrativeDivision" table="sys_administrative_division" schema="meet">
+        <id name="id">
+            <column name="id" sql-type="int(11)"/>
+        </id>
+        <property name="parentCode">
+            <column name="parent_code" sql-type="varchar(10)" length="10" not-null="true"/>
+        </property>
+        <property name="divisionCode">
+            <column name="division_code" sql-type="varchar(20)" length="20" not-null="true"/>
+        </property>
+        <property name="divisionName">
+            <column name="division_name" sql-type="varchar(255)" not-null="true"/>
+        </property>
+        <property name="divisionType">
+            <column name="division_type" sql-type="smallint(1)" not-null="true"/>
+        </property>
+    </class>
+</hibernate-mapping>
