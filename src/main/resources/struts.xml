@@ -8,21 +8,32 @@
     <constant name="struts.objectFactory" value="spring"/>
     <constant name="struts.objectFactory.spring.autoWire" value="name"/>
 
-    <!-- 默认访问页面 -->
+    <!-- 注册拦截器 -->
     <package name="default" extends="struts-default">
+        <interceptors>
+            <interceptor name="login" class="com.dong.config.LoginInterceptor"/>
+            <interceptor-stack name="loginStack">
+                <interceptor-ref name="defaultStack"/>
+                <interceptor-ref name="login"/>
+            </interceptor-stack>
+        </interceptors>
 
+        <global-results>
+            <result name="login">/login.jsp</result>
+        </global-results>
         <action name="index">
+            <interceptor-ref name="loginStack"/>
             <result>index.jsp</result>
         </action>
         <action name="login">
             <result>login.jsp</result>
         </action>
-
         <action name="hello" class="com.dong.web.action.HelloAction" method="hello">
             <result name="hello">hello.jsp</result>
         </action>
 
     </package>
+
     <!-- <package name="default" extends="struts-default" namespace="/">
         <default-action-ref name="default" />
         <action name="default">
