@@ -12,6 +12,10 @@
     .container {
         width: 100%;
         height: 100%;
+        background-image: url("images/backgroundImage.jpg");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover; /* 完全展示图片 */
     }
 
     .header {
