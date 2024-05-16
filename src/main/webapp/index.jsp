@@ -51,8 +51,9 @@
         justify-content: center; /* 水平居中 */
     }
 
+    /* 给li元素之间添加一些间隔但不包括最后一个元素 */
     ul.nav-list li:not(:last-child) {
-        margin-right: 20px; /* 给li元素之间添加一些间隔但不包括最后一个元素 */
+        margin-right: 20px;
     }
 
     .main {
