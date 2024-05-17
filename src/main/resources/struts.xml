@@ -4,7 +4,7 @@
         "http://struts.apache.org/dtds/struts-2.5.dtd">
 <struts>
     <constant name="struts.devMode" value="true"/>
-    <constant name="struts.i18n.encoding" value="UTF-8" />
+    <constant name="struts.i18n.encoding" value="UTF-8"/>
     <constant name="struts.objectFactory" value="spring"/>
     <constant name="struts.objectFactory.spring.autoWire" value="name"/>
 
@@ -17,16 +17,25 @@
                 <interceptor-ref name="login"/>
             </interceptor-stack>
         </interceptors>
+        <!-- 通用action控制页面调转 -->
+        <action name="navigate" class="com.dong.web.action.NavigationAction">
+            <interceptor-ref name="loginStack"/>
+            <result type="dispatcher">
+                <param name="location">/WEB-INF/view/${page}.jsp</param>
+            </result>
+        </action>
 
         <global-results>
             <result name="login">/login.jsp</result>
         </global-results>
-        <action name="index">
+        <action name="index" class="com.dong.web.action.IndexAction" method="index">
             <interceptor-ref name="loginStack"/>
             <result>index.jsp</result>
         </action>
-        <action name="login">
-            <result>login.jsp</result>
+        <action name="login" class="com.dong.web.action.LoginAction" method="login">
+            <interceptor-ref name="loginStack"/>
+            <result name="success">index.jsp</result>
+            <result name="error">hello.jsp</result>
         </action>
         <action name="hello" class="com.dong.web.action.HelloAction" method="hello">
             <result name="hello">hello.jsp</result>
