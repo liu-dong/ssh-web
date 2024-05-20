@@ -38,6 +38,11 @@
         justify-content: space-between;
         margin: 10px 0;
     }
+
+    .button {
+        display: flex;
+        justify-content: center;
+    }
 </style>
 <body>
 <div class="container">
@@ -51,7 +56,7 @@
             <label for="password">密&nbsp;&nbsp;&nbsp;码:</label>
             <input type="password" name="password" id="password">
         </div>
-        <div>
+        <div class="button">
             <input type="submit" value="登录">
         </div>
     </form>
