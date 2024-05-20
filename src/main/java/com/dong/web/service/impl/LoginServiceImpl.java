@@ -1,6 +1,7 @@
 package com.dong.web.service.impl;
 
 import com.dong.web.entity.Account;
+import com.dong.web.model.UserDetail;
 import com.dong.web.service.LoginService;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -13,7 +14,7 @@ public class LoginServiceImpl implements LoginService {
     private SessionFactory sessionFactory;
 
     @Override
-    public void login(String username, String password) {
+    public UserDetail login(String username, String password) {
         Session session = sessionFactory.openSession();
         try {
             session.beginTransaction();
@@ -25,7 +26,8 @@ public class LoginServiceImpl implements LoginService {
             session.getTransaction().commit();
 
             if (account != null && account.getPassword().equals(password)) {
-                // return true;
+
+                return new UserDetail(account);
             }
         } catch (Exception e) {
             if (session.getTransaction() != null) {
@@ -35,7 +37,7 @@ public class LoginServiceImpl implements LoginService {
         } finally {
             session.close();
         }
-        // return false;
+        return null;
     }
 
     public void setSessionFactory(SessionFactory sessionFactory) {

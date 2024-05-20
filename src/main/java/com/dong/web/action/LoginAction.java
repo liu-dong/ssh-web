@@ -1,13 +1,17 @@
 package com.dong.web.action;
 
+import com.dong.constant.CommonConstant;
 import com.dong.web.entity.Account;
 import com.dong.web.model.LoginDTO;
+import com.dong.web.model.UserDetail;
 import com.dong.web.service.LoginService;
 import com.opensymphony.xwork2.ActionSupport;
 import org.apache.commons.lang3.StringUtils;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
+
+import javax.servlet.http.HttpSession;
 
 /**
  * @author liudong 2024-05-14 16:52:28
@@ -31,9 +35,10 @@ public class LoginAction extends ActionSupport {
         return super.execute();
     }
 
-    public String login() {
+    public String login(HttpSession httpSession) {
         if (StringUtils.isNotBlank(username) && StringUtils.isNotBlank(password)) {
-            loginService.login(username,password);
+            UserDetail userDetail = loginService.login(username, password);
+            httpSession.setAttribute(CommonConstant.SESSION_USER, userDetail);
             return "success";
         } else {
             return "error";

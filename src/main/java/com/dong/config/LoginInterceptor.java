@@ -1,5 +1,6 @@
 package com.dong.config;
 
+import com.dong.constant.CommonConstant;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionInvocation;
 import com.opensymphony.xwork2.interceptor.Interceptor;
@@ -27,7 +28,7 @@ public class LoginInterceptor implements Interceptor {
             return invocation.invoke();
         } else {
             // 非登录操作，检查用户是否已经登录
-            if (request.getSession().getAttribute("user") == null) {
+            if (request.getSession().getAttribute(CommonConstant.SESSION_USER) == null) {
                 // 用户未登录，返回"login"字符串
                 return "login";
             } else {

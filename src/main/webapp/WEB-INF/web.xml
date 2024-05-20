@@ -6,7 +6,6 @@
          http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          id="WebApp_ID" version="3.1">
 
-
     <display-name>ssh-web</display-name>
 
     <filter>

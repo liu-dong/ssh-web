@@ -5,6 +5,8 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
+import javax.servlet.http.HttpSession;
+
 /**
  * @author liudong 2024-05-14 16:52:28
  */
@@ -12,7 +14,7 @@ public class IndexAction {
 
     private String username = "世界";
 
-    public String index() {
+    public String index(HttpSession httpSession) {
         SessionFactory factory = new Configuration().configure().buildSessionFactory();
         Session session = factory.openSession();
         session.beginTransaction();
