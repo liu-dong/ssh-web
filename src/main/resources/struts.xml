@@ -35,11 +35,11 @@
         </action>
         <action name="login" class="com.dong.web.action.LoginAction" method="login">
             <interceptor-ref name="loginStack"/>
-            <result name="success">index.jsp</result>
-            <result name="error">hello.jsp</result>
+            <result name="success">/WEB-INF/view/index.jsp</result>
+            <result name="error">/WEB-INF/view/hello.jsp</result>
         </action>
         <action name="hello" class="com.dong.web.action.HelloAction" method="hello">
-            <result name="hello">hello.jsp</result>
+            <result name="hello">/WEB-INF/view/hello.jsp</result>
         </action>
 
     </package>
