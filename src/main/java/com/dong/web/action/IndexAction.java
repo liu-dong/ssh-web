@@ -1,6 +1,7 @@
 package com.dong.web.action;
 
 import com.dong.web.entity.Account;
+import org.apache.struts2.ServletActionContext;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -14,7 +15,8 @@ public class IndexAction {
 
     private String username = "世界";
 
-    public String index(HttpSession httpSession) {
+    public String index() {
+        // HttpSession session = ServletActionContext.getRequest().getSession();
         SessionFactory factory = new Configuration().configure().buildSessionFactory();
         Session session = factory.openSession();
         session.beginTransaction();

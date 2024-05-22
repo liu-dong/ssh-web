@@ -17,18 +17,9 @@
                 <interceptor-ref name="login"/>
             </interceptor-stack>
         </interceptors>
-
         <global-results>
             <result name="login">/login.jsp</result>
         </global-results>
-
-        <!-- 通用action控制页面调转 -->
-        <action name="navigate" class="com.dong.web.action.NavigationAction">
-            <interceptor-ref name="loginStack"/>
-            <result type="dispatcher">
-                <param name="location">/WEB-INF/view/${page}.jsp</param>
-            </result>
-        </action>
         <action name="index" class="com.dong.web.action.IndexAction" method="index">
             <interceptor-ref name="loginStack"/>
             <result>index.jsp</result>
@@ -40,6 +31,13 @@
         </action>
         <action name="hello" class="com.dong.web.action.HelloAction" method="hello">
             <result name="hello">/WEB-INF/view/hello.jsp</result>
+        </action>
+        <!-- 通用action控制页面调转 -->
+        <action name="navigate" class="com.dong.web.action.NavigationAction">
+            <interceptor-ref name="loginStack"/>
+            <result type="dispatcher">
+                <param name="location">/WEB-INF/view/${page}.jsp</param>
+            </result>
         </action>
 
     </package>
