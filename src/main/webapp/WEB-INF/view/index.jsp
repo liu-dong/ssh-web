@@ -29,7 +29,7 @@
                         <li>子菜单项2</li>
                     </ul>
                 </li>
-                <li><a href="#" onclick="loadContentInIframe('${_path}/navigate?page=accountList')">账号管理</a></li>
+                <li><a href="#" onclick="loadContentInIframe('${_path}/accountList')">账号管理</a></li>
                 <li><a href="#" onclick="loadContentInIframe('${_path}/navigate?page=accountList')">角色管理</a></li>
                 <li><a href="#" onclick="loadContentInIframe('${_path}/navigate?page=accountList')">权限管理</a></li>
                 <li><a href="#" onclick="loadContentInIframe('${_path}/navigate?page=accountList')">单位管理</a></li>

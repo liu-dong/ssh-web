@@ -38,5 +38,8 @@
     <bean id="loginService" class="com.dong.web.service.impl.LoginServiceImpl">
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
+    <bean id="accountService" class="com.dong.web.service.impl.AccountServiceImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
 
 </beans>

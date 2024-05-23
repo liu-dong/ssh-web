@@ -14,7 +14,7 @@ public class AccountAction extends ActionSupport {
     /**
      * 当前页码
      */
-    private int page = 0;
+    private int page = 1;
     /**
      * 分页返回结果
      */

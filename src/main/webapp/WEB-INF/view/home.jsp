@@ -7,4 +7,8 @@
 <h2>Hello World!</h2>
 <h2>您好，${userDetail.realName}！</h2>
 </body>
+
+<script>
+
+</script>
 </html>

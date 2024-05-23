@@ -31,6 +31,14 @@ public class Pager<T> {
      */
     private List<T> dataList = new ArrayList<>();
 
+    public Pager(int page, int limit, int total, int pageTotal, List<T> dataList) {
+        this.page = page;
+        this.limit = limit;
+        this.total = total;
+        this.pageTotal = pageTotal;
+        this.dataList = dataList;
+    }
+
     public int getPage() {
         return page;
     }

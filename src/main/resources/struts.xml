@@ -42,6 +42,9 @@
         <action name="hello" class="com.dong.web.action.HelloAction" method="hello">
             <result name="hello">/WEB-INF/view/hello.jsp</result>
         </action>
+        <action name="accountList" class="com.dong.web.action.AccountAction" method="list">
+            <result name="success">/WEB-INF/view/accountList.jsp</result>
+        </action>
         <!-- 通用action控制页面调转 -->
         <action name="navigate" class="com.dong.web.action.NavigationAction">
             <interceptor-ref name="loginStack"/>
