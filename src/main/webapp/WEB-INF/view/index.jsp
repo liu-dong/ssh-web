@@ -1,13 +1,12 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <html>
-<link rel="stylesheet" type="text/css" href="css/common.css"/>
-<link rel="stylesheet" type="text/css" href="css/form.css"/>
-<link rel="stylesheet" type="text/css" href="css/modal.css"/>
-<link rel="stylesheet" type="text/css" href="css/index.css"/>
-<style>
-
-
-</style>
+<head>
+    <title>首页</title>
+    <link rel="stylesheet" type="text/css" href="css/common.css"/>
+    <link rel="stylesheet" type="text/css" href="css/form.css"/>
+    <link rel="stylesheet" type="text/css" href="css/modal.css"/>
+    <link rel="stylesheet" type="text/css" href="css/index.css"/>
+</head>
 <body>
 <div class="container">
     <div class="header">
@@ -15,8 +14,8 @@
         <div class="header-toolbar">
             <ul class="nav-list">
                 <li>您好，${userDetail.realName}！</li>
-                <li><a href="<%=request.getContextPath()%>/index">首页</a></li>
-                <li><a onclick="togglePasswordForm()">修改密码</a></li>
+                <li><a href="#" onclick="loadContentInIframe('${_path}/navigate?page=home')">首页</a></li>
+                <li><a href="#" onclick="togglePasswordForm()">修改密码</a></li>
                 <li><a href="<%=request.getContextPath()%>/logout">退出</a></li>
             </ul>
         </div>
@@ -30,24 +29,26 @@
                         <li>子菜单项2</li>
                     </ul>
                 </li>
-                <li>角色管理</li>
-                <li>权限管理</li>
-                <li>单位管理</li>
-                <li>人员管理</li>
+                <li><a href="#" onclick="loadContentInIframe('${_path}/navigate?page=accountList')">账号管理</a></li>
+                <li><a href="#" onclick="loadContentInIframe('${_path}/navigate?page=accountList')">角色管理</a></li>
+                <li><a href="#" onclick="loadContentInIframe('${_path}/navigate?page=accountList')">权限管理</a></li>
+                <li><a href="#" onclick="loadContentInIframe('${_path}/navigate?page=accountList')">单位管理</a></li>
+                <li><a href="#" onclick="loadContentInIframe('${_path}/navigate?page=accountList')">人员管理</a></li>
             </ul>
         </div>
         <div class="main-container">
             <div class="content">
-                <h2>Hello World!</h2>
-                <h2>您好，${session_user.realName}！</h2>
+                <iframe id="contentFrame" style="width: 100%; height: 100%; border: none;"></iframe>
             </div>
             <div class="footer">
                 Copyright © 2024 LD
             </div>
         </div>
     </div>
-    <div id="modalBackground" class="modal-background hidden"></div> <!-- 新增遮罩层 -->
-    <div id="modalPassword" class="modal hidden"> <!-- 用于弹窗的新Div -->
+    <!-- 新增遮罩层 -->
+    <div id="modalBackground" class="modal-background hidden"></div>
+    <!-- 弹窗 -->
+    <div id="modalPassword" class="modal hidden">
         <div class="modal-content">
             <span class="close-button" onclick="togglePasswordForm()">&times;</span> <!-- 关闭按钮 -->
             <h2>修改密码</h2>
@@ -57,11 +58,11 @@
                     <input type="password" id="oldPassword" name="updatePasswordDTO.oldPassword" required>
                 </div>
                 <div class="form-row">
-                <label for="newPassword">新密码：</label>
+                    <label for="newPassword">新密码：</label>
                     <input type="password" id="newPassword" name="updatePasswordDTO.newPassword" required>
                 </div>
                 <div class="form-row">
-                <label for="confirmPassword">确认新密码：</label>
+                    <label for="confirmPassword">确认新密码：</label>
                     <input type="password" id="confirmPassword" name="updatePasswordDTO.confirmPassword" required>
                 </div>
                 <div class="form-button">
@@ -73,12 +74,18 @@
 </div>
 </body>
 <script>
+  //打开关闭弹窗
   function togglePasswordForm() {
-    debugger
     var modal = document.getElementById('modalPassword');
     var modalBg = document.getElementById('modalBackground');
     modal.classList.toggle('hidden');
     modalBg.classList.toggle('hidden');
+  }
+
+  //加载iframe
+  function loadContentInIframe(url) {
+    var iframe = document.getElementById('contentFrame');
+    iframe.src = url;
   }
 </script>
 </html>

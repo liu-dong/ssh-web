@@ -27,17 +27,11 @@ public class LoginAction extends ActionSupport {
 
     private LoginService loginService;
 
-
-    @Override
-    public String execute() throws Exception {
-        // if (StringUtils.isNotBlank(loginDTO.getUsername()) && StringUtils.isNotBlank(loginDTO.getPassword())) {
-        //     System.out.println(loginDTO.getUsername());
-        // }
-        return super.execute();
-    }
-
-
-
+    /**
+     * 登录
+     *
+     * @return
+     */
     public String login() {
         HttpSession httpSession = ServletActionContext.getRequest().getSession();
         HttpServletRequest request = ServletActionContext.getRequest();

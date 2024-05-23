@@ -26,6 +26,15 @@
     </filter-mapping>
 
     <filter>
+        <filter-name>contextPathFilter</filter-name>
+        <filter-class>com.dong.config.ContextPathFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>contextPathFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <filter>
         <filter-name>struts2</filter-name>
         <filter-class>org.apache.struts2.dispatcher.filter.StrutsPrepareAndExecuteFilter</filter-class>
     </filter>

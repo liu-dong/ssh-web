@@ -1,0 +1,20 @@
+package com.dong.web.service;
+
+import com.dong.web.model.Pager;
+import com.dong.web.model.dto.AccountDTO;
+import com.dong.web.model.vo.AccountVO;
+
+/**
+ * @author liudong 2024-05-23 16:13:25
+ */
+public interface AccountService {
+
+    Pager<AccountVO> findListByPage(AccountDTO dto, int page);
+
+    void save(AccountDTO dto);
+
+    AccountVO detail(String accountId);
+
+    void delete(String accountId);
+
+}
