@@ -1,12 +1,5 @@
 /* 首页样式 */
 
-body {
-    margin: 0; /* 移除默认的margin */
-    width: 100vw; /* 视口宽度100% */
-    height: 100vh; /* 视口高度100% */
-    overflow: hidden; /* 确保没有滚动条 */
-    box-sizing: border-box;
-}
 .container {
     width: 100%;
     height: 100%;
@@ -128,3 +121,5 @@ li:hover ul {
     justify-content: center;
     align-items: center;
 }
+
+/* 添加更多样式根据需要 */

@@ -34,6 +34,11 @@
             <result name="success">login.jsp</result>
             <result name="error">/WEB-INF/view/hello.jsp</result>
         </action>
+        <action name="updatePassword" class="com.dong.web.action.LoginAction" method="updatePassword">
+            <interceptor-ref name="loginStack"/>
+            <result name="success">login.jsp</result>
+            <result name="error">/WEB-INF/view/hello.jsp</result>
+        </action>
         <action name="hello" class="com.dong.web.action.HelloAction" method="hello">
             <result name="hello">/WEB-INF/view/hello.jsp</result>
         </action>

@@ -7,6 +7,7 @@ import com.dong.web.model.UpdatePasswordDTO;
 import com.dong.web.model.UserDetail;
 import com.dong.web.service.LoginService;
 import com.opensymphony.xwork2.ActionSupport;
+import com.opensymphony.xwork2.ModelDriven;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.struts2.ServletActionContext;
 import org.hibernate.Session;
@@ -14,6 +15,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
 import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 /**
@@ -21,7 +23,6 @@ import javax.servlet.http.HttpSession;
  */
 public class LoginAction extends ActionSupport {
 
-    private LoginDTO loginDTO;
     private UpdatePasswordDTO updatePasswordDTO;
 
     private LoginService loginService;
@@ -29,18 +30,23 @@ public class LoginAction extends ActionSupport {
 
     @Override
     public String execute() throws Exception {
-        if (StringUtils.isNotBlank(loginDTO.getUsername()) && StringUtils.isNotBlank(loginDTO.getPassword())) {
-            System.out.println(loginDTO.getUsername());
-        }
+        // if (StringUtils.isNotBlank(loginDTO.getUsername()) && StringUtils.isNotBlank(loginDTO.getPassword())) {
+        //     System.out.println(loginDTO.getUsername());
+        // }
         return super.execute();
     }
 
+
+
     public String login() {
         HttpSession httpSession = ServletActionContext.getRequest().getSession();
-        if (StringUtils.isBlank(loginDTO.getUsername()) || StringUtils.isBlank(loginDTO.getPassword())) {
+        HttpServletRequest request = ServletActionContext.getRequest();
+        String username = request.getParameter("username");
+        String password = request.getParameter("password");
+        if (StringUtils.isBlank(username) || StringUtils.isBlank(password)) {
             return LOGIN;
         }
-        UserDetail userDetail = loginService.login(loginDTO.getUsername(), loginDTO.getPassword());
+        UserDetail userDetail = loginService.login(username, password);
         if (userDetail == null) {
             return LOGIN;
         }
@@ -60,10 +66,6 @@ public class LoginAction extends ActionSupport {
         return SUCCESS;
     }
 
-    public void setLoginDTO(LoginDTO loginDTO) {
-        this.loginDTO = loginDTO;
-    }
-
     public void setUpdatePasswordDTO(UpdatePasswordDTO updatePasswordDTO) {
         this.updatePasswordDTO = updatePasswordDTO;
     }
@@ -71,4 +73,5 @@ public class LoginAction extends ActionSupport {
     public void setLoginService(LoginService loginService) {
         this.loginService = loginService;
     }
+
 }

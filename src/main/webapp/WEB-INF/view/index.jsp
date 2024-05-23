@@ -1,6 +1,8 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <html>
 <link rel="stylesheet" type="text/css" href="css/common.css"/>
+<link rel="stylesheet" type="text/css" href="css/form.css"/>
+<link rel="stylesheet" type="text/css" href="css/modal.css"/>
 <link rel="stylesheet" type="text/css" href="css/index.css"/>
 <style>
 
@@ -17,25 +19,6 @@
                 <li><a onclick="togglePasswordForm()">修改密码</a></li>
                 <li><a href="<%=request.getContextPath()%>/logout">退出</a></li>
             </ul>
-            <div id="passwordForm" class="hidden">
-                <form action="<%=request.getContextPath()%>/updatePassword" method="POST">
-                    <div>
-                        <label for="oldPassword">当前密码：</label>
-                        <input type="password" id="oldPassword" name="oldPassword" required>
-                    </div>
-                    <div>
-                        <label for="newPassword">新密码：</label>
-                        <input type="password" id="newPassword" name="newPassword" required>
-                    </div>
-                    <div>
-                        <label for="confirmPassword">确认新密码：</label>
-                        <input type="password" id="confirmPassword" name="confirmPassword" required>
-                    </div>
-                    <div>
-                        <button type="submit">修改密码</button>
-                    </div>
-                </form>
-            </div>
         </div>
     </div>
     <div class="main">
@@ -63,21 +46,39 @@
             </div>
         </div>
     </div>
+    <div id="modalBackground" class="modal-background hidden"></div> <!-- 新增遮罩层 -->
+    <div id="modalPassword" class="modal hidden"> <!-- 用于弹窗的新Div -->
+        <div class="modal-content">
+            <span class="close-button" onclick="togglePasswordForm()">&times;</span> <!-- 关闭按钮 -->
+            <h2>修改密码</h2>
+            <form class="form" action="<%=request.getContextPath()%>/updatePassword" method="POST">
+                <div class="form-row">
+                    <label for="oldPassword">当前密码：</label>
+                    <input type="password" id="oldPassword" name="updatePasswordDTO.oldPassword" required>
+                </div>
+                <div class="form-row">
+                <label for="newPassword">新密码：</label>
+                    <input type="password" id="newPassword" name="updatePasswordDTO.newPassword" required>
+                </div>
+                <div class="form-row">
+                <label for="confirmPassword">确认新密码：</label>
+                    <input type="password" id="confirmPassword" name="updatePasswordDTO.confirmPassword" required>
+                </div>
+                <div class="form-button">
+                    <button type="submit">修改密码</button>
+                </div>
+            </form>
+        </div>
+    </div>
 </div>
 </body>
 <script>
   function togglePasswordForm() {
-    // 获取表单元素
-    var form = document.getElementById('passwordForm');
-
-    // 切换表单的显示状态
-    if (form.classList.contains('hidden')) {
-      form.classList.remove('hidden');
-      form.classList.add('visible');
-    } else {
-      form.classList.remove('visible');
-      form.classList.add('hidden');
-    }
+    debugger
+    var modal = document.getElementById('modalPassword');
+    var modalBg = document.getElementById('modalBackground');
+    modal.classList.toggle('hidden');
+    modalBg.classList.toggle('hidden');
   }
 </script>
 </html>

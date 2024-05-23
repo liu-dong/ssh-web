@@ -1,0 +1,43 @@
+/* 弹窗样式 */
+
+.modal-background {
+    position: fixed; /* 固定定位 */
+    z-index: 1; /* 确保在背景之上 */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* 启用滚动，如果需要的话 */
+    background-color: rgb(0,0,0); /* 蒙版效果 */
+    background-color: rgba(0,0,0,0.4); /* 黑色背景，带有透明度 */
+}
+
+.modal {
+    position: fixed; /* 固定定位 */
+    z-index: 2; /* 确保在遮罩层之上 */
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fefefe;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 30%; /* 可以根据需要调整弹窗大小 */
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.close-button {
+    cursor: pointer; /* 将鼠标悬停时的光标样式设置为手型，表示可点击 */
+    position: absolute; /* 绝对定位，方便放置在弹窗的右上角 */
+    top: 10px; /* 与顶部的距离 */
+    right: 15px; /* 与右侧的距离 */
+    font-size: 20px; /* 设置字体大小 */
+    font-weight: bold; /* 加粗字体 */
+    color: #666; /* 设置字体颜色 */
+    border: none; /* 去掉边框 */
+    background-color: transparent; /* 背景透明 */
+}
+
+.close-button:hover {
+    color: #000; /* 鼠标悬停时的字体颜色 */
+    text-decoration: none; /* 去掉鼠标悬停时的下划线 */
+}

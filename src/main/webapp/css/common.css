@@ -2,7 +2,17 @@
 .hidden {
     display: none;
 }
+
 /* 显示 */
 .visible {
     display: block;
+}
+
+/* body大小 */
+body {
+    margin: 0; /* 移除默认的margin */
+    width: 100vw; /* 视口宽度100% */
+    height: 100vh; /* 视口高度100% */
+    overflow: hidden; /* 确保没有滚动条 */
+    box-sizing: border-box;
 }
