@@ -47,14 +47,14 @@
 <body>
 <div class="container">
     <h1>登录页面</h1>
-    <form id="loginForm" action="login" method="post">
+    <form id="loginForm" action="<%=request.getContextPath()%>/login" method="post">
         <div>
             <label for="username">用户名:</label>
-            <input type="text" name="username" id="username">
+            <input type="text" name="loginDTO.username" id="username">
         </div>
         <div>
             <label for="password">密&nbsp;&nbsp;&nbsp;码:</label>
-            <input type="password" name="password" id="password">
+            <input type="password" name="loginDTO.password" id="password">
         </div>
         <div class="button">
             <input type="submit" value="登录">

@@ -9,7 +9,7 @@
     <constant name="struts.objectFactory.spring.autoWire" value="name"/>
 
     <!-- 注册拦截器 -->
-    <package name="default" extends="struts-default">
+    <package name="default" namespace="/" extends="struts-default">
         <interceptors>
             <interceptor name="login" class="com.dong.config.LoginInterceptor"/>
             <interceptor-stack name="loginStack">
@@ -22,11 +22,16 @@
         </global-results>
         <action name="index" class="com.dong.web.action.IndexAction" method="index">
             <interceptor-ref name="loginStack"/>
-            <result>index.jsp</result>
+            <result name="success">/WEB-INF/view/index.jsp</result>
         </action>
         <action name="login" class="com.dong.web.action.LoginAction" method="login">
             <interceptor-ref name="loginStack"/>
             <result name="success">/WEB-INF/view/index.jsp</result>
+            <result name="error">/WEB-INF/view/hello.jsp</result>
+        </action>
+        <action name="logout" class="com.dong.web.action.LoginAction" method="logout">
+            <interceptor-ref name="loginStack"/>
+            <result name="success">login.jsp</result>
             <result name="error">/WEB-INF/view/hello.jsp</result>
         </action>
         <action name="hello" class="com.dong.web.action.HelloAction" method="hello">

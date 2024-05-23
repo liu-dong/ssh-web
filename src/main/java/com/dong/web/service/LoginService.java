@@ -1,5 +1,7 @@
 package com.dong.web.service;
 
+import com.dong.web.model.LoginDTO;
+import com.dong.web.model.UpdatePasswordDTO;
 import com.dong.web.model.UserDetail;
 
 /**
@@ -16,4 +18,9 @@ public interface LoginService {
      */
     UserDetail login(String username, String password);
 
+    /**
+     * 修改密码
+     * @param dto
+     */
+    void updatePassword(UpdatePasswordDTO dto);
 }

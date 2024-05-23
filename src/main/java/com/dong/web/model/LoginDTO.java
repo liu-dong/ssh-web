@@ -1,6 +1,8 @@
 package com.dong.web.model;
 
 /**
+ * 登录
+ *
  * @author liudong 2024-05-20 09:38:24
  */
 public class LoginDTO {
