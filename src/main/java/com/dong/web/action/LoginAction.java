@@ -66,6 +66,10 @@ public class LoginAction extends ActionSupport {
         return SUCCESS;
     }
 
+    public UpdatePasswordDTO getUpdatePasswordDTO() {
+        return updatePasswordDTO;
+    }
+
     public void setUpdatePasswordDTO(UpdatePasswordDTO updatePasswordDTO) {
         this.updatePasswordDTO = updatePasswordDTO;
     }

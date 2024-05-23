@@ -51,11 +51,7 @@ public class LoginServiceImpl implements LoginService {
         Session session = sessionFactory.openSession();
         try {
             session.beginTransaction();
-            Account account1 = session.get(Account.class, userDetail.getUserId());
-            // 这里的查询应该是根据用户名和密码查询，而不是硬编码的id
-            Account account = (Account) session.createQuery("FROM Account WHERE id = :id")
-                    .setParameter("id", userDetail.getUserId())
-                    .uniqueResult();
+            Account account = session.get(Account.class, userDetail.getUserId());
             account.setPassword(dto.getNewPassword());
             session.update(account);
             session.getTransaction().commit();
