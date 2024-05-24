@@ -14,7 +14,7 @@ public class CommonDaoImpl {
 
     private SessionFactory sessionFactory;
 
-    public Pager<T> findListByPage(Criteria criteria, int page) {
+    public Pager<?> findListByPage(Criteria criteria, int page) {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
         // 分页查询数据
