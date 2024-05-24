@@ -31,6 +31,13 @@ public class Pager<T> {
      */
     private List<T> dataList = new ArrayList<>();
 
+    public Pager(int page, int total, List<T> dataList) {
+        this.page = page;
+        this.limit = 10;
+        this.total = total;
+        this.pageTotal = (int) Math.ceil((double) total / 10);
+        this.dataList = dataList;
+    }
     public Pager(int page, int limit, int total, int pageTotal, List<T> dataList) {
         this.page = page;
         this.limit = limit;
