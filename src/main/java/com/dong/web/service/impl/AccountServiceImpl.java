@@ -11,7 +11,6 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
-import org.hibernate.query.Query;
 
 import java.util.List;
 
@@ -27,6 +26,21 @@ public class AccountServiceImpl implements AccountService {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
         // 创建 Criteria 对象
+        Criteria criteria = createCriteriaWithConditions(session, dto);
+        // 分页查询数据
+        criteria.setFirstResult((page - 1) * 10);
+        criteria.setMaxResults(10);
+        List<AccountVO> dataList = criteria.list();
+        // 单独的 Criteria 来获取总数
+        Criteria countCriteria = createCriteriaWithConditions(session, dto);
+        countCriteria.setProjection(Projections.rowCount());
+        int total = Math.toIntExact((Long) countCriteria.uniqueResult());
+        transaction.commit();
+        session.close();
+        return new Pager<>(page, total, dataList);
+    }
+
+    private Criteria createCriteriaWithConditions(Session session, AccountDTO dto) {
         Criteria criteria = session.createCriteria(Account.class);
         // 根据AccountDTO的字段构建查询条件
         if (dto.getUsername() != null && !dto.getUsername().isEmpty()) {
@@ -38,17 +52,8 @@ public class AccountServiceImpl implements AccountService {
         if (dto.getUserStatus() != null) {
             criteria.add(Restrictions.eq("userStatus", dto.getUserStatus()));
         }
-        // 分页查询数据
-        criteria.setFirstResult((page - 1) * 10);
-        criteria.setMaxResults(10);
-        List<AccountVO> dataList = criteria.list();
-        // 单独的 Criteria 来获取总数
-        Criteria countCriteria = session.createCriteria(Account.class);
-        countCriteria.setProjection(Projections.rowCount());
-        int total = Math.toIntExact((Long) countCriteria.uniqueResult());
-        transaction.commit();
-        session.close();
-        return new Pager<>(page, total, dataList);
+        // 这里可以添加其他查询条件...
+        return criteria;
     }
 
     @Override
