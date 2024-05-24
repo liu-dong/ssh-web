@@ -1,6 +1,7 @@
 package com.dong.web.service;
 
-import com.dong.web.model.Pager;
+import com.dong.web.model.Page;
+import com.dong.web.model.PageVO;
 import com.dong.web.model.dto.AccountDTO;
 import com.dong.web.model.vo.AccountVO;
 
@@ -9,9 +10,9 @@ import com.dong.web.model.vo.AccountVO;
  */
 public interface AccountService {
 
-    Pager<AccountVO> findListByPage(AccountDTO dto, int page);
+    PageVO<AccountVO> findListByPage(AccountDTO dto, Page page);
 
-    void save(AccountDTO dto);
+    String save(AccountDTO dto);
 
     AccountVO detail(String accountId);
 

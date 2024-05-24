@@ -4,71 +4,56 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 分页
+ * 分页结果
  *
  * @author LD
  */
-public class Pager<T> {
+public class PageVO<T> {
 
     /**
      * 当前页码
      */
-    private int page = 0;
-    /**
-     * 每页数量
-     */
-    private int limit = 10;
+    private int currentPage = 0;
+
     /**
      * 记录总数
      */
     private int total = 0;
+
     /**
      * 页码总数
      */
     private int pageTotal = 0;
+
     /**
      * 分页数据
      */
     private List<T> dataList = new ArrayList<>();
 
-    public Pager(int page, int total, List<T> dataList) {
-        this.page = page;
-        this.limit = 10;
+    public PageVO(int currentPage, int total, List<T> dataList) {
+        this.currentPage = currentPage;
         this.total = total;
         this.pageTotal = (int) Math.ceil((double) total / 10);
         this.dataList = dataList;
     }
-    public Pager(int page, int limit, int total, int pageTotal, List<T> dataList) {
-        this.page = page;
-        this.limit = limit;
+
+    public PageVO(int currentPage, int total, int pageTotal, List<T> dataList) {
+        this.currentPage = currentPage;
         this.total = total;
         this.pageTotal = pageTotal;
         this.dataList = dataList;
     }
 
-    public int getPage() {
-        return page;
+    public int getCurrentPage() {
+        return currentPage;
     }
 
-    public void setPage(int page) {
-        if (page <= 0) {
-            this.page = 1;
+    public void setCurrentPage(int currentPage) {
+        if (currentPage <= 0) {
+            this.currentPage = 1;
         } else {
-            this.page = page;
+            this.currentPage = currentPage;
         }
-
-    }
-
-    public int getOffset() {
-        return this.page * this.limit;
-    }
-
-    public int getLimit() {
-        return limit;
-    }
-
-    public void setLimit(int limit) {
-        this.limit = limit;
     }
 
     public long getTotal() {
@@ -77,7 +62,7 @@ public class Pager<T> {
 
     public void setTotal(int total) {
         this.total = total;
-        this.pageTotal = (int) Math.ceil((double) total / limit);
+        this.pageTotal = (int) Math.ceil((double) total / 10);
     }
 
     public int getPageTotal() {

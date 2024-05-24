@@ -32,7 +32,7 @@
         </tr>
         </thead>
         <tbody>
-        <s:iterator value="pager.dataList" status="stat">
+        <s:iterator value="pageVO.dataList" status="stat">
             <tr>
                 <th><s:property value="#stat.index + 1"/></th>
                 <th><s:property value="username"/></th>
@@ -54,7 +54,7 @@
     <div class="pagination">
         <button id="prevPage">首页</button>
         <button id="prevPage">上一页</button>
-        <c:forEach begin="1" end="${pager.pageTotal}" var="i">
+        <c:forEach begin="1" end="${pageVO.pageTotal}" var="i">
             <button>${i}</button>
         </c:forEach>
         <button id="nextPage">下一页</button>

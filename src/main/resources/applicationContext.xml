@@ -35,6 +35,9 @@
     <!-- 启用自动代理创建支持注解的事务管理 -->
     <!-- <tx:annotation-driven transaction-manager="transactionManager"/> -->
 
+    <bean id="commonDao" class="com.dong.web.dao.CommonDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
     <bean id="loginService" class="com.dong.web.service.impl.LoginServiceImpl">
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
