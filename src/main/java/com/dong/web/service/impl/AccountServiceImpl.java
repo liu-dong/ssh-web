@@ -1,6 +1,6 @@
 package com.dong.web.service.impl;
 
-import com.dong.web.dao.CommonDao;
+import com.dong.web.dao.AccountDao;
 import com.dong.web.entity.Account;
 import com.dong.web.model.Page;
 import com.dong.web.model.PageVO;
@@ -27,7 +27,7 @@ import java.util.List;
 public class AccountServiceImpl implements AccountService {
 
     private SessionFactory sessionFactory;
-    private CommonDao<Account> commonDao;
+    private AccountDao accountDao;
 
     @Override
     public PageVO<AccountVO> findListByPage(AccountDTO dto, Page page) {
@@ -65,9 +65,9 @@ public class AccountServiceImpl implements AccountService {
     }
 
     @Override
-    public String save(AccountDTO dto) {
+    public Account save(AccountDTO dto) {
         Account entity = convertEntity(dto);
-        return commonDao.save(entity);
+        return accountDao.save(entity);
     }
 
     private Account convertEntity(AccountDTO dto) {
@@ -78,7 +78,7 @@ public class AccountServiceImpl implements AccountService {
 
     @Override
     public AccountVO detail(String accountId) {
-        Account entity = commonDao.detail(accountId);
+        Account entity = accountDao.getById(accountId);
         return convertVO(entity);
     }
 
@@ -90,6 +90,6 @@ public class AccountServiceImpl implements AccountService {
 
     @Override
     public void delete(String accountId) {
-        commonDao.delete(accountId);
+        accountDao.deleteById(accountId);
     }
 }

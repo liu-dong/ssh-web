@@ -22,13 +22,13 @@ public interface GenericDAO<T, ID extends Serializable> {
 }
 
 
-abstract class AbstractGenericDAO<T, ID extends Serializable> implements GenericDAO<T, ID> {
+class GenericDAOImpl<T, ID extends Serializable> implements GenericDAO<T, ID> {
 
     private Class<T> entityClass;
     private SessionFactory sessionFactory;
 
     @SuppressWarnings("unchecked")
-    public AbstractGenericDAO(SessionFactory sessionFactory) {
+    public GenericDAOImpl(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
         this.entityClass = (Class<T>) ((ParameterizedType) getClass().getGenericSuperclass())
                 .getActualTypeArguments()[0];

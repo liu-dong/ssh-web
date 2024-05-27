@@ -1,5 +1,6 @@
 package com.dong.web.service;
 
+import com.dong.web.entity.Account;
 import com.dong.web.model.Page;
 import com.dong.web.model.PageVO;
 import com.dong.web.model.dto.AccountDTO;
@@ -12,7 +13,7 @@ public interface AccountService {
 
     PageVO<AccountVO> findListByPage(AccountDTO dto, Page page);
 
-    String save(AccountDTO dto);
+    Account save(AccountDTO dto);
 
     AccountVO detail(String accountId);
 
