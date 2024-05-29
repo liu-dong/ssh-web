@@ -46,7 +46,9 @@
             <result name="success">/WEB-INF/view/accountList.jsp</result>
         </action>
         <action name="saveAccount" class="com.dong.web.action.AccountAction" method="save">
-            <result name="success">/WEB-INF/view/accountList.jsp</result>
+            <result name="success" type="redirectAction">
+                <param name="actionName">accountList</param>
+            </result>
         </action>
         <!-- 通用action控制页面调转 -->
         <action name="navigate" class="com.dong.web.action.NavigationAction">

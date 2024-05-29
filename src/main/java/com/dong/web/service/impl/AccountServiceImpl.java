@@ -9,14 +9,18 @@ import com.dong.web.model.vo.AccountVO;
 import com.dong.web.service.AccountService;
 import lombok.Getter;
 import lombok.Setter;
+import org.apache.commons.lang3.StringUtils;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.BeanUtils;
+import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 
 /**
  * @author liudong 2024-05-23 16:22:13
@@ -69,7 +73,17 @@ public class AccountServiceImpl implements AccountService {
 
     private Account convertEntity(AccountDTO dto) {
         Account entity = new Account();
-        BeanUtils.copyProperties(dto, entity);
+        if (StringUtils.isNotBlank(dto.getId())) {
+            entity = accountDao.getById(dto.getId());
+        } else {
+            entity.setId(UUID.randomUUID().toString().replace("-", ""));
+            entity.setCreateTime(new Date());
+            entity.setPersonId("1");
+        }
+        BeanUtils.copyProperties(dto, entity, "id","lastLoginTime", "loginCount");
+        entity.setPasswordHash(dto.getPassword());
+        entity.setLoginCount(0);
+        entity.setUpdateTime(new Date());
         return entity;
     }
 

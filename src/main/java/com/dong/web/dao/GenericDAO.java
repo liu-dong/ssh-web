@@ -2,6 +2,7 @@ package com.dong.web.dao;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
@@ -75,6 +76,7 @@ public interface GenericDAO<T, ID extends Serializable> {
 }
 
 
+@Transactional
 class GenericDAOImpl<T, ID extends Serializable> implements GenericDAO<T, ID> {
 
     private Class<T> entityClass;

@@ -1,7 +1,7 @@
 package com.dong.web.entity;
 
 import javax.persistence.*;
-import java.sql.Date;
+import java.util.Date;
 
 /**
  * @author liudong 2024/5/15
@@ -10,7 +10,6 @@ import java.sql.Date;
 @Table(name = "sys_account", schema = "meet", catalog = "")
 public class Account {
 
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "id", nullable = false, length = 36)
     private String id;

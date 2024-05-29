@@ -64,6 +64,7 @@
             <button onclick="turnPage(${i})">${i}</button>
         </c:forEach>
         <button id="nextPage" onclick="nextPage()">下一页</button>
+        <span>共 ${pageVO.total} 条</span>
     </div>
 </div>
 </body>
