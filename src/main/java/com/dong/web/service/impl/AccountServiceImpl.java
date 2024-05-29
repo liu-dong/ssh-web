@@ -12,7 +12,6 @@ import lombok.Setter;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
 import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.BeanUtils;
@@ -32,18 +31,16 @@ public class AccountServiceImpl implements AccountService {
     @Override
     public PageVO<AccountVO> findListByPage(AccountDTO dto, Page page) {
         Session session = sessionFactory.openSession();
-        Transaction transaction = session.beginTransaction();
         // 创建 Criteria 对象
         Criteria criteria = createCriteriaWithConditions(session, dto);
         // 分页查询数据
         criteria.setFirstResult((page.getPage() - 1) * page.getLimit());
-        criteria.setMaxResults(10);
+        criteria.setMaxResults(page.getLimit());
         List<AccountVO> dataList = criteria.list();
         // 单独的 Criteria 来获取总数
         Criteria countCriteria = createCriteriaWithConditions(session, dto);
         countCriteria.setProjection(Projections.rowCount());
         int total = Math.toIntExact((Long) countCriteria.uniqueResult());
-        transaction.commit();
         session.close();
         return new PageVO<>(page.getPage(), total, dataList);
     }

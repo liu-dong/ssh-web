@@ -19,7 +19,7 @@ public class AccountAction extends ActionSupport {
     /**
      * 分页
      */
-    private Page page;
+    private Page page = new Page();
     /**
      * 分页结果
      */
@@ -28,7 +28,7 @@ public class AccountAction extends ActionSupport {
      * 账号id
      */
     private String accountId;
-    private AccountDTO dto;
+    private AccountDTO dto = new AccountDTO();
     private AccountVO vo;
 
 

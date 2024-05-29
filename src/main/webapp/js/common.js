@@ -1,3 +1,10 @@
+
+/**
+ *
+ * @param url
+ * @param params
+ * @returns {HTMLFormElement}
+ */
 function postForm(url, params, target) {
   var temp = document.createElement("form"); //创建form表单
   temp.action = url;
@@ -19,10 +26,16 @@ function postForm(url, params, target) {
   return temp;
 }
 
-function getForm(url, params, target) {
+/**
+ * 创建get表单
+ * @param url
+ * @param params
+ * @returns {HTMLFormElement}
+ */
+function getForm(url, params) {
   var temp = document.createElement("form"); //创建form表单
+  debugger
   temp.action = url;
-  temp.target = target;
   temp.method = "get";
   temp.style.display = "none";//表单样式为隐藏
   for (var item in params) {//初始化表单内部的控件

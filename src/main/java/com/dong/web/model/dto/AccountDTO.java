@@ -24,6 +24,6 @@ public class AccountDTO {
     /**
      * 用户状态
      */
-    private String userStatus;
+    private Integer userStatus;
 }
 

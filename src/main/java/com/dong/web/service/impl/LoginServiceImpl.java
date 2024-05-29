@@ -20,10 +20,8 @@ import org.springframework.transaction.annotation.Transactional;
 public class LoginServiceImpl implements LoginService {
 
     SessionFactory sessionFactory;
-    AccountDao accountDao;
 
     @Override
-    @Transactional
     public UserDetail login(String username, String password) {
         Session session = sessionFactory.openSession();
         try {

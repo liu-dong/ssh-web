@@ -1,7 +1,7 @@
 package com.dong.web.entity;
 
 import javax.persistence.*;
-import java.sql.Timestamp;
+import java.sql.Date;
 
 /**
  * @author liudong 2024/5/15
@@ -40,7 +40,7 @@ public class Account {
     private String realName;
     @Basic
     @Column(name = "last_login_time", nullable = true)
-    private Timestamp lastLoginTime;
+    private Date lastLoginTime;
     @Basic
     @Column(name = "login_count", nullable = false)
     private Integer loginCount;
@@ -49,10 +49,10 @@ public class Account {
     private Integer userStatus;
     @Basic
     @Column(name = "create_time", nullable = false)
-    private Timestamp createTime;
+    private Date createTime;
     @Basic
     @Column(name = "update_time", nullable = true)
-    private Timestamp updateTime;
+    private Date updateTime;
 
     public String getId() {
         return id;
@@ -126,11 +126,11 @@ public class Account {
         this.realName = realName;
     }
 
-    public Timestamp getLastLoginTime() {
+    public Date getLastLoginTime() {
         return lastLoginTime;
     }
 
-    public void setLastLoginTime(Timestamp lastLoginTime) {
+    public void setLastLoginTime(Date lastLoginTime) {
         this.lastLoginTime = lastLoginTime;
     }
 
@@ -150,19 +150,19 @@ public class Account {
         this.userStatus = userStatus;
     }
 
-    public Timestamp getCreateTime() {
+    public Date getCreateTime() {
         return createTime;
     }
 
-    public void setCreateTime(Timestamp createTime) {
+    public void setCreateTime(Date createTime) {
         this.createTime = createTime;
     }
 
-    public Timestamp getUpdateTime() {
+    public Date getUpdateTime() {
         return updateTime;
     }
 
-    public void setUpdateTime(Timestamp updateTime) {
+    public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
     }
 }
