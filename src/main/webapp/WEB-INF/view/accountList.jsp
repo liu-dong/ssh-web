@@ -9,6 +9,7 @@
 </head>
 <body>
 <div class="content-container">
+    <h2>账号列表页</h2>
     <div class="search">
         <form id="searchForm" action="accountList" method="get">
             <input type="hidden" id="currentPage" name="page.page" value="${pageVO.currentPage}">

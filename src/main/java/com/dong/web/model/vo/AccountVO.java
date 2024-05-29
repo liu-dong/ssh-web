@@ -9,9 +9,13 @@ import lombok.Data;
 @Data
 public class AccountVO {
 
+
     private String id;
     private String username;
-    private String personId;
+    private String password;
+    private String passwordHash;
+    private String phone;
+    private String email;
     private Integer userType;// 用户类型 2：普通用户，默认为普通用户
     private Integer userStatus;
     private String realName;// 真实姓名
@@ -21,8 +25,5 @@ public class AccountVO {
      * 登录次数
      */
     private String loginCount;
-
-
-    private String createTime;// 账号id
 }
 

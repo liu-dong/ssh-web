@@ -45,6 +45,9 @@
         <action name="accountList" class="com.dong.web.action.AccountAction" method="list">
             <result name="success">/WEB-INF/view/accountList.jsp</result>
         </action>
+        <action name="saveAccount" class="com.dong.web.action.AccountAction" method="save">
+            <result name="success">/WEB-INF/view/accountList.jsp</result>
+        </action>
         <!-- 通用action控制页面调转 -->
         <action name="navigate" class="com.dong.web.action.NavigationAction">
             <interceptor-ref name="loginStack"/>

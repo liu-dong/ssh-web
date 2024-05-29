@@ -1,4 +1,11 @@
 /**
+ * 返回上一个页面
+ */
+function goBack() {
+  window.history.back();
+}
+
+/**
  * 表单提交
  */
 function submit() {
@@ -37,7 +44,7 @@ function nextPage() {
   submit()
 }
 
-function jump(url){
+function jump(url) {
   var element = parent.document.getElementById("contentFrame");
   if (!element) {
     console.error("无法找到iframe元素");
