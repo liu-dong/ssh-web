@@ -8,17 +8,70 @@ import java.lang.reflect.ParameterizedType;
 import java.util.List;
 
 /**
+ * 通用DAO
+ *
  * @author liudong 2024-05-24 17:54:10
  */
 public interface GenericDAO<T, ID extends Serializable> {
+
+    /**
+     * 查询
+     *
+     * @param id
+     * @return
+     */
     T getById(ID id);
+
+    /**
+     * 查询列表
+     *
+     * @return
+     */
     List<T> findAll();
+
+    /**
+     * 保存
+     *
+     * @param entity
+     * @return
+     */
     T save(T entity);
+
+    /**
+     * 批量保存
+     *
+     * @param entities
+     */
     void save(List<T> entities);
+
+    /**
+     * 修改
+     *
+     * @param entity
+     * @return
+     */
     T update(T entity);
-    void delete(T entity);
-    void delete(List<T> entities);
+
+    /**
+     * 删除
+     *
+     * @param id
+     */
     void deleteById(ID id);
+
+    /**
+     * 删除
+     *
+     * @param entity
+     */
+    void delete(T entity);
+
+    /**
+     * 批量删除
+     *
+     * @param entities
+     */
+    void delete(List<T> entities);
 }
 
 
@@ -55,14 +108,21 @@ class GenericDAOImpl<T, ID extends Serializable> implements GenericDAO<T, ID> {
     }
 
     @Override
-    public T update(T entity) {
-        getSession().update(entity);
-        return entity;
+    public void save(List<T> entities) {
+        Session session = getSession();
+        for (int i = 0; i < entities.size(); i++) {
+            session.save(entities.get(i));
+            if (i % 20 == 0) { // 以每20个数据一批为例
+                session.flush();
+                session.clear();
+            }
+        }
     }
 
     @Override
-    public void delete(T entity) {
-        getSession().delete(entity);
+    public T update(T entity) {
+        getSession().update(entity);
+        return entity;
     }
 
     @Override
@@ -74,15 +134,8 @@ class GenericDAOImpl<T, ID extends Serializable> implements GenericDAO<T, ID> {
     }
 
     @Override
-    public void save(List<T> entities) {
-        Session session = getSession();
-        for (int i = 0; i < entities.size(); i++) {
-            session.save(entities.get(i));
-            if (i % 20 == 0) { // 以每20个数据一批为例
-                session.flush();
-                session.clear();
-            }
-        }
+    public void delete(T entity) {
+        getSession().delete(entity);
     }
 
     @Override

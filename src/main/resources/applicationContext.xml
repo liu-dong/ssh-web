@@ -5,6 +5,8 @@
        xsi:schemaLocation="
         http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+        http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx.xsd
        ">
 
     <!-- 数据源配置 -->
@@ -33,16 +35,20 @@
     </bean>
 
     <!-- 启用自动代理创建支持注解的事务管理 -->
-    <!-- <tx:annotation-driven transaction-manager="transactionManager"/> -->
+    <tx:annotation-driven transaction-manager="transactionManager"/>
 
+    <!--  -->
     <bean id="commonDao" class="com.dong.web.dao.CommonDaoImpl">
         <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <bean id="accountDao" class="com.dong.web.dao.AccountDaoImpl">
+        <constructor-arg ref="sessionFactory"/>
     </bean>
     <bean id="loginService" class="com.dong.web.service.impl.LoginServiceImpl">
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
     <bean id="accountService" class="com.dong.web.service.impl.AccountServiceImpl">
-        <property name="sessionFactory" ref="sessionFactory"/>
+        <property name="accountDao" ref="accountDao"/>
     </bean>
 
 </beans>

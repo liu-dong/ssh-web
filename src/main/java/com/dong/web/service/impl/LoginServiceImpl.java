@@ -1,43 +1,40 @@
 package com.dong.web.service.impl;
 
-import com.dong.constant.CommonConstant;
 import com.dong.util.SessionUtils;
+import com.dong.web.dao.AccountDao;
 import com.dong.web.entity.Account;
-import com.dong.web.model.LoginDTO;
 import com.dong.web.model.UpdatePasswordDTO;
 import com.dong.web.model.UserDetail;
 import com.dong.web.service.LoginService;
-import org.apache.struts2.ServletActionContext;
+import lombok.Getter;
+import lombok.Setter;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-
-import javax.servlet.http.HttpSession;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * @author liudong 2024-05-20 09:57:41
  */
+@Getter
+@Setter
 public class LoginServiceImpl implements LoginService {
 
-    private SessionFactory sessionFactory;
+    SessionFactory sessionFactory;
+    AccountDao accountDao;
 
     @Override
+    @Transactional
     public UserDetail login(String username, String password) {
         Session session = sessionFactory.openSession();
         try {
-            session.beginTransaction();
             // 这里的查询应该是根据用户名和密码查询，而不是硬编码的id
             Account account = (Account) session.createQuery("FROM Account WHERE username = :username")
                     .setParameter("username", username)
                     .uniqueResult();
-
-            session.getTransaction().commit();
             if (account != null && account.getPassword().equals(password)) {
                 return new UserDetail(account);
             }
         } catch (Exception e) {
-            if (session.getTransaction() != null) {
-                session.getTransaction().rollback();
-            }
             e.printStackTrace();
         } finally {
             session.close();
@@ -65,7 +62,4 @@ public class LoginServiceImpl implements LoginService {
         }
     }
 
-    public void setSessionFactory(SessionFactory sessionFactory) {
-        this.sessionFactory = sessionFactory;
-    }
 }

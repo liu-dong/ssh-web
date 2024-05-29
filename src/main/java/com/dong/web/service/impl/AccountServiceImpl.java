@@ -26,8 +26,8 @@ import java.util.List;
 @Setter
 public class AccountServiceImpl implements AccountService {
 
-    private SessionFactory sessionFactory;
-    private AccountDao accountDao;
+    SessionFactory sessionFactory;
+    AccountDao accountDao;
 
     @Override
     public PageVO<AccountVO> findListByPage(AccountDTO dto, Page page) {
