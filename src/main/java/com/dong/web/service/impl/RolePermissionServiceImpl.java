@@ -3,9 +3,11 @@ package com.dong.web.service.impl;
 import com.dong.web.model.Pagination;
 import com.dong.web.model.dto.RolePermissionDTO;
 import com.dong.web.service.RolePermissionService;
-import org.springframework.stereotype.Service;
+import lombok.Getter;
+import lombok.Setter;
 
-@Service
+@Getter
+@Setter
 public class RolePermissionServiceImpl implements RolePermissionService {
 
     /**

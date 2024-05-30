@@ -10,6 +10,8 @@ import com.dong.web.model.Pagination;
 import com.dong.web.model.dto.PersonDTO;
 import com.dong.web.model.vo.PersonVO;
 import com.dong.web.service.PersonService;
+import lombok.Getter;
+import lombok.Setter;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,12 +20,13 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-@Service
+@Getter
+@Setter
 public class PersonServiceImpl implements PersonService {
 
-    @Autowired
+
     PersonDao personDao;
-    @Autowired
+
     CommonDao commonDao;
 
     /**

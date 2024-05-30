@@ -10,6 +10,8 @@ import com.dong.web.model.Pagination;
 import com.dong.web.model.dto.PermissionDTO;
 import com.dong.web.model.vo.PermissionVO;
 import com.dong.web.service.PermissionService;
+import lombok.Getter;
+import lombok.Setter;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,12 +21,13 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
-@Service
+@Getter
+@Setter
 public class PermissionServiceImpl implements PermissionService {
 
-    @Autowired
+
     PermissionDao permissionDao;
-    @Autowired
+
     CommonDao commonDao;
 
     /**

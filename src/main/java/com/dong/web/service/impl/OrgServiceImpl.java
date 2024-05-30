@@ -14,24 +14,25 @@ import com.dong.web.model.dto.OrgDTO;
 import com.dong.web.model.vo.OrgVO;
 import com.dong.web.model.vo.PersonVO;
 import com.dong.web.service.OrgService;
+import lombok.Getter;
+import lombok.Setter;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.BeanUtils;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-@Service
+@Getter
+@Setter
 public class OrgServiceImpl implements OrgService {
 
-    @Autowired
+
     OrgDao orgDao;
-    @Autowired
+
     OrgPersonDao orgPersonDao;
-    @Autowired
+
     CommonDao commonDao;
 
     /**

@@ -13,10 +13,10 @@ import com.dong.web.model.Pagination;
 import com.dong.web.model.dto.RoleDTO;
 import com.dong.web.model.vo.RoleVO;
 import com.dong.web.service.RoleService;
+import lombok.Getter;
+import lombok.Setter;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.BeanUtils;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.CollectionUtils;
 
@@ -25,17 +25,18 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
-@Service
+@Getter
+@Setter
 public class RoleServiceImpl implements RoleService {
 
-    @Autowired
-    RoleDao roleDao;
-    @Autowired
-    AccountRoleDao accountRoleDao;
-    @Autowired
-    RolePermissionDao rolePermissionDao;
-    @Autowired
     CommonDao commonDao;
+
+    RoleDao roleDao;
+
+    AccountRoleDao accountRoleDao;
+
+    RolePermissionDao rolePermissionDao;
+
 
     /**
      * 查询角色信息列表

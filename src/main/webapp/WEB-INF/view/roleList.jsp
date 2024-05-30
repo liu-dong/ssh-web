@@ -11,34 +11,25 @@
 <div class="content-container">
     <h2>账号列表页</h2>
     <div class="search">
-        <form id="searchForm" action="${path}/account/list" method="get">
+        <form id="searchForm" action="${path}/role/list" method="get">
             <input type="hidden" id="currentPage" name="page.page" value="${pageVO.currentPage}">
-            <label for="username">账号：</label>
-            <input id="username" name="dto.username" type="text" placeholder="请输入">
-            <label for="realName">真实姓名：</label>
-            <input id="realName" name="dto.realName" type="text" placeholder="请输入">
-            <label for="userStatus">用户状态：</label>
-            <%-- <input id="userStatus" name="dto.userStatus" type="text" placeholder="请输入"> --%>
-            <select id="userStatus" name="dto.userStatus">
-                <option value="">请选择</option>
-                <option value="0">正常</option>
-                <option value="1">已注销</option>
-            </select>
+            <label for="username">角色名称：</label>
+            <input id="username" name="dto.roleName" type="text" placeholder="请输入">
+            <label for="realName">角色编码：</label>
+            <input id="realName" name="dto.realCode" type="text" placeholder="请输入">
+
             <button type="submit">搜索</button>
         </form>
-        <button onclick="jump('${_path}/navigate?module=account&type=detail')">新增</button>
+        <button onclick="jump('${_path}/navigate?module=role&type=detail')">新增</button>
     </div>
     <table id="dataTable">
         <thead>
         <tr>
             <th class="center width-50">序号</th>
-            <th class="center width-150">账号</th>
-            <th class="center width-150">真实姓名</th>
-            <th class="center">手机号</th>
-            <th class="center">邮箱</th>
-            <th class="center width-200">上传登录时间</th>
-            <th class="center width-100">登录次数</th>
-            <th class="center width-100">用户状态</th>
+            <th class="center width-200">角色编码</th>
+            <th class="center width-200">角色名称</th>
+            <th class="center">备注</th>
+            <th class="center width-200">创建时间</th>
             <th class="center width-200">操作</th>
         </tr>
         </thead>
@@ -46,20 +37,17 @@
         <s:iterator value="pageVO.dataList" status="stat">
             <tr>
                 <td class="center width-50"><s:property value="#stat.index + 1"/></td>
-                <td class="center width-150"><s:property value="username"/></td>
-                <td class="center width-150"><s:property value="realName"/></td>
-                <td class="center"><s:property value="phone"/></td>
-                <td class="center"><s:property value="email"/></td>
-                <td class="center width-200"><s:property value="lastLoginTime"/></td>
-                <td class="center width-100"><s:property value="loginCount"/></td>
-                <td class="center width-100"><s:property value="userStatus"/></td>
+                <td class="center width-200"><s:property value="roleCode"/></td>
+                <td class="center width-200"><s:property value="roleName"/></td>
+                <td class="center"><s:property value="remark"/></td>
+                <td class="center width-200"><s:property value="createTime"/></td>
                 <td class="center width-200">
                     <!-- 查看详情 -->
-                    <a href="${_path}/detailAccount?viewType=detail&accountId=<s:property value='id'/>">查看</a>
+                    <a href="${_path}/role/detail?viewType=detail&roleId=<s:property value='id'/>">查看</a>
                     <!-- 编辑账号 -->
-                    <a href="${_path}/detailAccount?viewType=edit&accountId=<s:property value='id'/>">编辑</a>
+                    <a href="${_path}/role/detail?viewType=edit&roleId=<s:property value='id'/>">编辑</a>
                     <!-- 删除账号，建议使用 JavaScript -->
-                    <a href="${_path}/deleteAccount?accountId=<s:property value='id'/>">删除</a>
+                    <a href="${_path}/role/delete?roleId=<s:property value='id'/>">删除</a>
 
                 </td>
             </tr>

@@ -37,19 +37,48 @@
     <!-- 启用自动代理创建支持注解的事务管理 -->
     <tx:annotation-driven transaction-manager="transactionManager"/>
 
-    <!--  -->
+    <!-- dao层注入 -->
     <bean id="commonDao" class="com.dong.web.dao.CommonDaoImpl">
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
     <bean id="accountDao" class="com.dong.web.dao.AccountDaoImpl">
         <constructor-arg ref="sessionFactory"/>
     </bean>
+    <bean id="accountRoleDao" class="com.dong.web.dao.AccountRoleDaoImpl">
+        <constructor-arg ref="sessionFactory"/>
+    </bean>
+    <bean id="roleDao" class="com.dong.web.dao.RoleDaoImpl">
+        <constructor-arg ref="sessionFactory"/>
+    </bean>
+    <bean id="permissionDao" class="com.dong.web.dao.PermissionDaoImpl">
+        <constructor-arg ref="sessionFactory"/>
+    </bean>
+    <bean id="rolePermissionDao" class="com.dong.web.dao.RolePermissionDaoImpl">
+        <constructor-arg ref="sessionFactory"/>
+    </bean>
+    <bean id="orgDao" class="com.dong.web.dao.OrgDaoImpl">
+        <constructor-arg ref="sessionFactory"/>
+    </bean>
+    <bean id="personDao" class="com.dong.web.dao.PersonDaoImpl">
+        <constructor-arg ref="sessionFactory"/>
+    </bean>
+    <bean id="orgPersonDao" class="com.dong.web.dao.OrgPersonDaoImpl">
+        <constructor-arg ref="sessionFactory"/>
+    </bean>
+
+    <!-- service层注入 -->
     <bean id="loginService" class="com.dong.web.service.impl.LoginServiceImpl">
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
     <bean id="accountService" class="com.dong.web.service.impl.AccountServiceImpl">
         <property name="commonDao" ref="commonDao"/>
         <property name="accountDao" ref="accountDao"/>
+    </bean>
+    <bean id="roleService" class="com.dong.web.service.impl.RoleServiceImpl">
+        <property name="commonDao" ref="commonDao"/>
+        <property name="roleDao" ref="roleDao"/>
+        <property name="accountRoleDao" ref="accountRoleDao"/>
+        <property name="rolePermissionDao" ref="rolePermissionDao"/>
     </bean>
 
 </beans>

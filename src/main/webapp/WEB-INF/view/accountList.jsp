@@ -55,11 +55,11 @@
                 <td class="center width-100"><s:property value="userStatus"/></td>
                 <td class="center width-200">
                     <!-- 查看详情 -->
-                    <a href="${_path}/detailAccount?viewType=detail&accountId=<s:property value='id'/>">查看</a>
+                    <a href="${_path}/account/detail?viewType=detail&accountId=<s:property value='id'/>">查看</a>
                     <!-- 编辑账号 -->
-                    <a href="${_path}/detailAccount?viewType=edit&accountId=<s:property value='id'/>">编辑</a>
+                    <a href="${_path}/account/detail?viewType=edit&accountId=<s:property value='id'/>">编辑</a>
                     <!-- 删除账号，建议使用 JavaScript -->
-                    <a href="${_path}/deleteAccount?accountId=<s:property value='id'/>">删除</a>
+                    <a href="${_path}/account/delete?accountId=<s:property value='id'/>">删除</a>
 
                 </td>
             </tr>
