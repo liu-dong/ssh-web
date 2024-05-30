@@ -25,7 +25,8 @@
     margin-right: 5px; /* 设置标签和输入框之间的距离 */
 }
 
-.search input {
+.search input,
+.search select {
     width: 150px;
     height: 30px;
 }

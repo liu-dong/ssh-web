@@ -32,9 +32,16 @@
         </div>
         <div class="form-row">
             <label for="userType">用户类型：</label>
-            <input id="userType" type="text" name="dto.userType" value="${vo.userType}" required>
+            <select id="userType" name="dto.userType" required>
+                <option value="2" ${vo.userType == '2' ? 'selected' : ''}>普通</option>
+                <option value="1" ${vo.userType == '1' ? 'selected' : ''}>管理员</option>
+                <option value="0" ${vo.userType == '0' ? 'selected' : ''}>超级管理员</option>
+            </select>
             <label for="userStatus">用户状态：</label>
-            <input id="userStatus" type="text" name="dto.userStatus" value="${vo.userStatus}" required>
+            <select id="userStatus" name="dto.userStatus" required>
+                <option value="0" ${vo.userStatus == '0' ? 'selected' : ''}>正常</option>
+                <option value="1" ${vo.userStatus == '1' ? 'selected' : ''}>已注销</option>
+            </select>
         </div>
         <div class="form-row">
             <label for="lastLoginTime">上次登录时间：</label>

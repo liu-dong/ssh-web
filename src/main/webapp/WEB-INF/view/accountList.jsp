@@ -18,7 +18,12 @@
             <label for="realName">真实姓名：</label>
             <input id="realName" name="dto.realName" type="text" placeholder="请输入">
             <label for="userStatus">用户状态：</label>
-            <input id="userStatus" name="dto.userStatus" type="text" placeholder="请输入">
+            <%-- <input id="userStatus" name="dto.userStatus" type="text" placeholder="请输入"> --%>
+            <select id="userStatus" name="dto.userStatus">
+                <option value="">请选择</option>
+                <option value="0">正常</option>
+                <option value="1">已注销</option>
+            </select>
             <button type="submit">搜索</button>
         </form>
         <button onclick="jump('${_path}/navigate?page=accountDetail')">新增</button>
