@@ -23,17 +23,17 @@
     <div class="main">
         <div class="menu">
             <ul class="menu-list">
-                <li>账号管理
+                <%-- <li>账号管理
                     <ul>
                         <li>子菜单项1</li>
                         <li>子菜单项2</li>
                     </ul>
-                </li>
-                <li><a href="#" onclick="loadContentInIframe('${_path}/accountList')">账号管理</a></li>
-                <li><a href="#" onclick="loadContentInIframe('${_path}/navigate?page=accountList')">角色管理</a></li>
-                <li><a href="#" onclick="loadContentInIframe('${_path}/navigate?page=accountList')">权限管理</a></li>
-                <li><a href="#" onclick="loadContentInIframe('${_path}/navigate?page=accountList')">单位管理</a></li>
-                <li><a href="#" onclick="loadContentInIframe('${_path}/navigate?page=accountList')">人员管理</a></li>
+                </li> --%>
+                <li><a href="#" onclick="loadContentInIframe('${_path}/account/list')">账号管理</a></li>
+                <li><a href="#" onclick="loadContentInIframe('${_path}/role/list')">角色管理</a></li>
+                <li><a href="#" onclick="loadContentInIframe('${_path}/permission/list')">权限管理</a></li>
+                <li><a href="#" onclick="loadContentInIframe('${_path}/org/list')">单位管理</a></li>
+                <li><a href="#" onclick="loadContentInIframe('${_path}/person/list')">人员管理</a></li>
             </ul>
         </div>
         <div class="main-container">

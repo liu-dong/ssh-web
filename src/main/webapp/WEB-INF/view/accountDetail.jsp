@@ -10,7 +10,7 @@
 <body>
 <div class="content-container">
     <h2>账号详情页</h2>
-    <form class="form" action="<%=request.getContextPath()%>/saveAccount" method="POST">
+    <form class="form" action="<%=request.getContextPath()%>/account/save" method="POST">
         <input type="hidden" name="dto.id" value="${vo.id}">
         <div class="form-row">
             <label for="username">用户名：</label>
