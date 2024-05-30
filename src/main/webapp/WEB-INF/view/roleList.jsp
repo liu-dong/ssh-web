@@ -3,13 +3,13 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>账号列表</title>
+    <title>角色列表</title>
     <link rel="stylesheet" type="text/css" href="${_path}/css/list.css"/>
     <script type="text/javascript" src="${_path}/js/list.js"></script>
 </head>
 <body>
 <div class="content-container">
-    <h2>账号列表页</h2>
+    <h2>角色列表页</h2>
     <div class="search">
         <form id="searchForm" action="${path}/role/list" method="get">
             <input type="hidden" id="currentPage" name="page.page" value="${pageVO.currentPage}">
@@ -42,11 +42,8 @@
                 <td class="center"><s:property value="remark"/></td>
                 <td class="center width-200"><s:property value="createTime"/></td>
                 <td class="center width-200">
-                    <!-- 查看详情 -->
                     <a href="${_path}/role/detail?viewType=detail&roleId=<s:property value='id'/>">查看</a>
-                    <!-- 编辑账号 -->
                     <a href="${_path}/role/detail?viewType=edit&roleId=<s:property value='id'/>">编辑</a>
-                    <!-- 删除账号，建议使用 JavaScript -->
                     <a href="${_path}/role/delete?roleId=<s:property value='id'/>">删除</a>
 
                 </td>
