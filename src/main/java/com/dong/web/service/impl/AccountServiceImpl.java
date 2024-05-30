@@ -3,7 +3,7 @@ package com.dong.web.service.impl;
 import cn.hutool.core.date.DateUtil;
 import com.dong.web.dao.AccountDao;
 import com.dong.web.entity.Account;
-import com.dong.web.model.Page;
+import com.dong.web.model.Pagination;
 import com.dong.web.model.PageVO;
 import com.dong.web.model.dto.AccountDTO;
 import com.dong.web.model.vo.AccountVO;
@@ -17,7 +17,6 @@ import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.BeanUtils;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
 import java.util.List;
@@ -34,20 +33,20 @@ public class AccountServiceImpl implements AccountService {
     AccountDao accountDao;
 
     @Override
-    public PageVO<AccountVO> findListByPage(AccountDTO dto, Page page) {
+    public PageVO<AccountVO> findListByPage(AccountDTO dto, Pagination pagination) {
         Session session = sessionFactory.openSession();
         // 创建 Criteria 对象
         Criteria criteria = createCriteriaWithConditions(session, dto);
         // 分页查询数据
-        criteria.setFirstResult((page.getPage() - 1) * page.getLimit());
-        criteria.setMaxResults(page.getLimit());
+        criteria.setFirstResult((pagination.getPage() - 1) * pagination.getLimit());
+        criteria.setMaxResults(pagination.getLimit());
         List<AccountVO> dataList = criteria.list();
         // 单独的 Criteria 来获取总数
         Criteria countCriteria = createCriteriaWithConditions(session, dto);
         countCriteria.setProjection(Projections.rowCount());
         int total = Math.toIntExact((Long) countCriteria.uniqueResult());
         session.close();
-        return new PageVO<>(page.getPage(), total, dataList);
+        return new PageVO<>(pagination.getPage(), total, dataList);
     }
 
     private Criteria createCriteriaWithConditions(Session session, AccountDTO dto) {

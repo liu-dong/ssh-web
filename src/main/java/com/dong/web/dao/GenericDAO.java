@@ -1,9 +1,14 @@
 package com.dong.web.dao;
 
+import com.dong.web.model.PageVO;
+import com.dong.web.model.Pagination;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.query.internal.NativeQueryImpl;
+import org.hibernate.transform.Transformers;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.persistence.Query;
 import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
 import java.util.List;
@@ -16,19 +21,19 @@ import java.util.List;
 public interface GenericDAO<T, ID extends Serializable> {
 
     /**
+     * 查询列表
+     *
+     * @return
+     */
+    List<T> findAll();
+
+    /**
      * 查询
      *
      * @param id
      * @return
      */
     T getById(ID id);
-
-    /**
-     * 查询列表
-     *
-     * @return
-     */
-    List<T> findAll();
 
     /**
      * 保存
@@ -94,13 +99,13 @@ class GenericDAOImpl<T, ID extends Serializable> implements GenericDAO<T, ID> {
     }
 
     @Override
-    public T getById(ID id) {
-        return getSession().find(entityClass, id);
+    public List<T> findAll() {
+        return getSession().createQuery("from " + entityClass.getName(), entityClass).getResultList();
     }
 
     @Override
-    public List<T> findAll() {
-        return getSession().createQuery("from " + entityClass.getName(), entityClass).getResultList();
+    public T getById(ID id) {
+        return getSession().find(entityClass, id);
     }
 
     @Override

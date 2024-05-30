@@ -1,7 +1,7 @@
 package com.dong.web.service;
 
 import com.dong.web.entity.Account;
-import com.dong.web.model.Page;
+import com.dong.web.model.Pagination;
 import com.dong.web.model.PageVO;
 import com.dong.web.model.dto.AccountDTO;
 import com.dong.web.model.vo.AccountVO;
@@ -11,7 +11,7 @@ import com.dong.web.model.vo.AccountVO;
  */
 public interface AccountService {
 
-    PageVO<AccountVO> findListByPage(AccountDTO dto, Page page);
+    PageVO<AccountVO> findListByPage(AccountDTO dto, Pagination pagination);
 
     Account save(AccountDTO dto);
 

@@ -1,6 +1,6 @@
 package com.dong.web.action;
 
-import com.dong.web.model.Page;
+import com.dong.web.model.Pagination;
 import com.dong.web.model.PageVO;
 import com.dong.web.model.dto.AccountDTO;
 import com.dong.web.model.vo.AccountVO;
@@ -19,7 +19,7 @@ public class PermissionAction extends ActionSupport {
     /**
      * 分页
      */
-    private Page page = new Page();
+    private Pagination pagination = new Pagination();
     /**
      * 分页结果
      */
@@ -42,7 +42,7 @@ public class PermissionAction extends ActionSupport {
 
     // 分页查询账号列表
     public String list() {
-        pageVO = accountService.findListByPage(dto, page);
+        pageVO = accountService.findListByPage(dto, pagination);
         return SUCCESS;
     }
 

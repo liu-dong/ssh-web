@@ -5,7 +5,7 @@ package com.dong.web.model;
  *
  * @author LD
  */
-public class Page {
+public class Pagination {
 
     /**
      * 当前页码
