@@ -5,50 +5,25 @@ function goBack() {
   window.history.back();
 }
 
-/**
- * 表单提交
- */
-function submit() {
-  document.getElementById('searchForm').submit()
-}
 
 /**
- * 翻页
+ * 详情页只读
  */
-function turnPage(number) {
-  var element = document.getElementById('currentPage');
-  element.value = number;
-  submit()
-}
+function detailReadonly() {
+  // 设置为只读状态
+  window.onload = function() {
+    // 获取所有输入元素
+    var inputs = document.querySelectorAll('.form input, .form select, .form textarea');
 
-/**
- * 上一页
- */
-function prevPage() {
-  var element = document.getElementById('currentPage');
-  var number = parseInt(element.value) - 1;
-  if (number >= 1) {
-    element.value = number;
-    submit()
-  } else {
-    alert("已是第一页")
+    // 遍历并禁用所有元素
+    inputs.forEach(function(input) {
+      input.setAttribute('disabled', 'disabled');
+    });
+
+    // 隐藏或移除提交按钮
+    var submitButton = document.querySelector('.form-button');
+    if (submitButton) {
+      submitButton.style.display = 'none';
+    }
   }
-}
-
-/**
- * 下一页
- */
-function nextPage() {
-  var element = document.getElementById('currentPage');
-  element.value = parseInt(element.value) + 1;
-  submit()
-}
-
-function jump(url) {
-  var element = parent.document.getElementById("contentFrame");
-  if (!element) {
-    console.error("无法找到iframe元素");
-    return;
-  }
-  element.src = url;
 }
