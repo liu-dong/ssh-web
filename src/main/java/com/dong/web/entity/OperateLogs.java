@@ -1,7 +1,7 @@
 package com.dong.web.entity;
 
 import javax.persistence.*;
-import java.sql.Timestamp;
+import java.util.Date;
 
 /**
  * @author liudong 2024/5/15
@@ -9,7 +9,7 @@ import java.sql.Timestamp;
 @Entity
 @Table(name = "sys_operate_logs", schema = "meet", catalog = "")
 public class OperateLogs {
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    
     @Id
     @Column(name = "id", nullable = false, length = 36)
     private String id;
@@ -21,7 +21,7 @@ public class OperateLogs {
     private String operateType;
     @Basic
     @Column(name = "operate_time", nullable = false)
-    private Timestamp operateTime;
+    private Date operateTime;
     @Basic
     @Column(name = "module_name", nullable = false, length = 50)
     private String moduleName;
@@ -39,10 +39,10 @@ public class OperateLogs {
     private String content;
     @Basic
     @Column(name = "create_time", nullable = false)
-    private Timestamp createTime;
+    private Date createTime;
     @Basic
     @Column(name = "update_time", nullable = true)
-    private Timestamp updateTime;
+    private Date updateTime;
 
     public String getId() {
         return id;
@@ -68,11 +68,11 @@ public class OperateLogs {
         this.operateType = operateType;
     }
 
-    public Timestamp getOperateTime() {
+    public Date getOperateTime() {
         return operateTime;
     }
 
-    public void setOperateTime(Timestamp operateTime) {
+    public void setOperateTime(Date operateTime) {
         this.operateTime = operateTime;
     }
 
@@ -116,19 +116,19 @@ public class OperateLogs {
         this.content = content;
     }
 
-    public Timestamp getCreateTime() {
+    public Date getCreateTime() {
         return createTime;
     }
 
-    public void setCreateTime(Timestamp createTime) {
+    public void setCreateTime(Date createTime) {
         this.createTime = createTime;
     }
 
-    public Timestamp getUpdateTime() {
+    public Date getUpdateTime() {
         return updateTime;
     }
 
-    public void setUpdateTime(Timestamp updateTime) {
+    public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
     }
 }

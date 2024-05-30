@@ -20,7 +20,7 @@
         <default-interceptor-ref name="loginStack"/>
         <global-results>
             <result name="login">/login.jsp</result>
-            <result name="error">/hello.jsp</result>
+            <result name="error">/error.jsp</result>
         </global-results>
         <global-exception-mappings>
             <exception-mapping exception="java.lang.Exception" result="error"/>
@@ -36,15 +36,15 @@
         </action>
         <action name="login" class="com.dong.web.action.LoginAction" method="login">
             <result name="success">/WEB-INF/view/index.jsp</result>
-            <result name="error">/WEB-INF/view/hello.jsp</result>
+            <result name="error">/error.jsp</result>
         </action>
         <action name="logout" class="com.dong.web.action.LoginAction" method="logout">
             <result name="success">login.jsp</result>
-            <result name="error">/WEB-INF/view/hello.jsp</result>
+            <result name="error">/error.jsp</result>
         </action>
         <action name="updatePassword" class="com.dong.web.action.LoginAction" method="updatePassword">
             <result name="success">login.jsp</result>
-            <result name="error">/WEB-INF/view/hello.jsp</result>
+            <result name="error">/error.jsp</result>
         </action>
         <action name="hello" class="com.dong.web.action.HelloAction" method="hello">
             <result name="hello">/WEB-INF/view/hello.jsp</result>

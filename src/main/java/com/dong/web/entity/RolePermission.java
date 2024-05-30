@@ -8,7 +8,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "sys_role_permission", schema = "meet", catalog = "")
 public class RolePermission {
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    
     @Id
     @Column(name = "id", nullable = false, length = 36)
     private String id;

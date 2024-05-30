@@ -1,7 +1,7 @@
 package com.dong.web.entity;
 
 import javax.persistence.*;
-import java.sql.Timestamp;
+import java.util.Date;
 
 /**
  * @author liudong 2024/5/15
@@ -9,7 +9,7 @@ import java.sql.Timestamp;
 @Entity
 @Table(name = "sys_permission", schema = "meet", catalog = "")
 public class Permission {
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    
     @Id
     @Column(name = "id", nullable = false, length = 36)
     private String id;
@@ -30,10 +30,10 @@ public class Permission {
     private String resourceId;
     @Basic
     @Column(name = "create_time", nullable = false)
-    private Timestamp createTime;
+    private Date createTime;
     @Basic
     @Column(name = "update_time", nullable = true)
-    private Timestamp updateTime;
+    private Date updateTime;
 
     public String getId() {
         return id;
@@ -83,19 +83,19 @@ public class Permission {
         this.resourceId = resourceId;
     }
 
-    public Timestamp getCreateTime() {
+    public Date getCreateTime() {
         return createTime;
     }
 
-    public void setCreateTime(Timestamp createTime) {
+    public void setCreateTime(Date createTime) {
         this.createTime = createTime;
     }
 
-    public Timestamp getUpdateTime() {
+    public Date getUpdateTime() {
         return updateTime;
     }
 
-    public void setUpdateTime(Timestamp updateTime) {
+    public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
     }
 }

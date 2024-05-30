@@ -1,7 +1,7 @@
 package com.dong.web.entity;
 
 import javax.persistence.*;
-import java.sql.Timestamp;
+import java.util.Date;
 
 /**
  * @author liudong 2024/5/15
@@ -9,7 +9,7 @@ import java.sql.Timestamp;
 @Entity
 @Table(name = "sys_person", schema = "meet", catalog = "")
 public class Person {
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    
     @Id
     @Column(name = "id", nullable = false, length = 36)
     private String id;
@@ -27,7 +27,7 @@ public class Person {
     private Integer age;
     @Basic
     @Column(name = "birthdate", nullable = true)
-    private Timestamp birthdate;
+    private Date birthdate;
     @Basic
     @Column(name = "sex", nullable = true)
     private Short sex;
@@ -51,13 +51,13 @@ public class Person {
     private Integer deleteStatus;
     @Basic
     @Column(name = "create_time", nullable = false)
-    private Timestamp createTime;
+    private Date createTime;
     @Basic
     @Column(name = "create_user_id", nullable = true, length = 36)
     private String createUserId;
     @Basic
     @Column(name = "update_time", nullable = true)
-    private Timestamp updateTime;
+    private Date updateTime;
     @Basic
     @Column(name = "update_user_id", nullable = true, length = 36)
     private String updateUserId;
@@ -102,11 +102,11 @@ public class Person {
         this.age = age;
     }
 
-    public Timestamp getBirthdate() {
+    public Date getBirthdate() {
         return birthdate;
     }
 
-    public void setBirthdate(Timestamp birthdate) {
+    public void setBirthdate(Date birthdate) {
         this.birthdate = birthdate;
     }
 
@@ -166,11 +166,11 @@ public class Person {
         this.deleteStatus = deleteStatus;
     }
 
-    public Timestamp getCreateTime() {
+    public Date getCreateTime() {
         return createTime;
     }
 
-    public void setCreateTime(Timestamp createTime) {
+    public void setCreateTime(Date createTime) {
         this.createTime = createTime;
     }
 
@@ -182,11 +182,11 @@ public class Person {
         this.createUserId = createUserId;
     }
 
-    public Timestamp getUpdateTime() {
+    public Date getUpdateTime() {
         return updateTime;
     }
 
-    public void setUpdateTime(Timestamp updateTime) {
+    public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
     }
 

@@ -8,7 +8,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "sys_administrative_division", schema = "meet", catalog = "")
 public class AdministrativeDivision {
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    
     @Id
     @Column(name = "id", nullable = false)
     private Integer id;

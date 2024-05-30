@@ -1,7 +1,7 @@
 package com.dong.web.entity;
 
 import javax.persistence.*;
-import java.sql.Timestamp;
+import java.util.Date;
 
 /**
  * @author liudong 2024/5/15
@@ -9,7 +9,7 @@ import java.sql.Timestamp;
 @Entity
 @Table(name = "sys_login_logs", schema = "meet", catalog = "")
 public class LoginLogs {
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    
     @Id
     @Column(name = "id", nullable = false, length = 36)
     private String id;
@@ -21,7 +21,7 @@ public class LoginLogs {
     private Integer loginType;
     @Basic
     @Column(name = "login_time", nullable = false)
-    private Timestamp loginTime;
+    private Date loginTime;
     @Basic
     @Column(name = "login_address", nullable = false, length = 200)
     private String loginAddress;
@@ -33,10 +33,10 @@ public class LoginLogs {
     private String remark;
     @Basic
     @Column(name = "create_time", nullable = false)
-    private Timestamp createTime;
+    private Date createTime;
     @Basic
     @Column(name = "update_time", nullable = true)
-    private Timestamp updateTime;
+    private Date updateTime;
 
     public String getId() {
         return id;
@@ -62,11 +62,11 @@ public class LoginLogs {
         this.loginType = loginType;
     }
 
-    public Timestamp getLoginTime() {
+    public Date getLoginTime() {
         return loginTime;
     }
 
-    public void setLoginTime(Timestamp loginTime) {
+    public void setLoginTime(Date loginTime) {
         this.loginTime = loginTime;
     }
 
@@ -94,19 +94,19 @@ public class LoginLogs {
         this.remark = remark;
     }
 
-    public Timestamp getCreateTime() {
+    public Date getCreateTime() {
         return createTime;
     }
 
-    public void setCreateTime(Timestamp createTime) {
+    public void setCreateTime(Date createTime) {
         this.createTime = createTime;
     }
 
-    public Timestamp getUpdateTime() {
+    public Date getUpdateTime() {
         return updateTime;
     }
 
-    public void setUpdateTime(Timestamp updateTime) {
+    public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
     }
 }
