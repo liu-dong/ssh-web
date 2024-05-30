@@ -1,5 +1,6 @@
 package com.dong.web.service.impl;
 
+import cn.hutool.core.date.DateUtil;
 import com.dong.web.dao.AccountDao;
 import com.dong.web.entity.Account;
 import com.dong.web.model.Page;
@@ -96,6 +97,7 @@ public class AccountServiceImpl implements AccountService {
     private AccountVO convertVO(Account entity) {
         AccountVO vo = new AccountVO();
         BeanUtils.copyProperties(entity, vo);
+        vo.setLastLoginTime(DateUtil.formatDateTime(entity.getLastLoginTime()));
         return vo;
     }
 

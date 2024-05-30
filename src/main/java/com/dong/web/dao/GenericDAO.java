@@ -105,7 +105,7 @@ class GenericDAOImpl<T, ID extends Serializable> implements GenericDAO<T, ID> {
 
     @Override
     public T save(T entity) {
-        getSession().save(entity);
+        getSession().saveOrUpdate(entity);
         return entity;
     }
 

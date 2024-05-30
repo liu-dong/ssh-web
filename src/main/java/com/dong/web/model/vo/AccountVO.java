@@ -24,6 +24,6 @@ public class AccountVO {
     /**
      * 登录次数
      */
-    private String loginCount;
+    private Integer loginCount;
 }
 

@@ -27,8 +27,8 @@
         <thead>
         <tr>
             <th class="center width-50">序号</th>
-            <th class="center width-100">账号</th>
-            <th class="center width-100">真实姓名</th>
+            <th class="center width-150">账号</th>
+            <th class="center width-150">真实姓名</th>
             <th class="center">手机号</th>
             <th class="center">邮箱</th>
             <th class="center width-200">上传登录时间</th>
@@ -41,17 +41,21 @@
         <s:iterator value="pageVO.dataList" status="stat">
             <tr>
                 <td class="center width-50"><s:property value="#stat.index + 1"/></td>
-                <td class="center width-100"><s:property value="username"/></td>
-                <td class="center width-100"><s:property value="realName"/></td>
+                <td class="center width-150"><s:property value="username"/></td>
+                <td class="center width-150"><s:property value="realName"/></td>
                 <td class="center"><s:property value="phone"/></td>
                 <td class="center"><s:property value="email"/></td>
                 <td class="center width-200"><s:property value="lastLoginTime"/></td>
                 <td class="center width-100"><s:property value="loginCount"/></td>
                 <td class="center width-100"><s:property value="userStatus"/></td>
                 <td class="center width-200">
-                    <button type="submit">查看</button>
-                    <button type="submit">编辑</button>
-                    <button type="submit">删除</button>
+                    <!-- 查看详情 -->
+                    <a href="${_path}/detailAccount?viewType=detail&accountId=<s:property value='id'/>">查看</a>
+                    <!-- 编辑账号 -->
+                    <a href="${_path}/detailAccount?viewType=edit&accountId=<s:property value='id'/>">编辑</a>
+                    <!-- 删除账号，建议使用 JavaScript -->
+                    <a href="${_path}/deleteAccount?accountId=<s:property value='id'/>">删除</a>
+
                 </td>
             </tr>
         </s:iterator>

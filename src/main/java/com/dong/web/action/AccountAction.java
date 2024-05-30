@@ -24,10 +24,16 @@ public class AccountAction extends ActionSupport {
      * 分页结果
      */
     private PageVO<AccountVO> pageVO;
+
     /**
      * 账号id
      */
     private String accountId;
+
+    /**
+     * 页面类型 detail：查看，edit：编辑，add：新增
+     */
+    private String viewType;
     private AccountDTO dto = new AccountDTO();
     private AccountVO vo;
 

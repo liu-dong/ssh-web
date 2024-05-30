@@ -50,6 +50,14 @@
                 <param name="actionName">accountList</param>
             </result>
         </action>
+        <action name="deleteAccount" class="com.dong.web.action.AccountAction" method="delete">
+            <result name="success" type="redirectAction">
+                <param name="actionName">accountList</param>
+            </result>
+        </action>
+        <action name="detailAccount" class="com.dong.web.action.AccountAction" method="detail">
+            <result name="success">/WEB-INF/view/accountDetail.jsp</result>
+        </action>
         <!-- 通用action控制页面调转 -->
         <action name="navigate" class="com.dong.web.action.NavigationAction">
             <interceptor-ref name="loginStack"/>
